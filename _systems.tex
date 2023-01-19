@@ -1,0 +1,278 @@
+\documentclass{article}
+\usepackage[papersize={8.5in,11in}, margin=0.4in, bottom = 1.3in, headsep=.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage[none]{hyphenat}%%%%
+\usepackage[scr]{rsfso}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\addtolength{\topmargin}{.5in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{The Cooper Union \\ESC251 - System Dynamics\\Prof. Luchtenburg}
+\fancyhead[R]{Benjamin Aziel  \\Spring 2023\\}
+\setlength{\headheight}{23pt}
+
+\newcommand{\Laplace}{\mathscr{L}}
+\newcommand{\UnitStep}{\mathscr{U}}
+\newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\V}[1]{\overrightarrow{#1}}
+\newcommand{\bicture}[1]{\begin{center}
+    {\includegraphics[height=4cm]{#1}}
+\end{center}}
+\newcommand{\volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+
+\begin{document}
+\begin{onehalfspacing}
+
+\begin{flushleft}
+
+\large\textbf{1 - Course Overview} \\
+\normalsize
+
+The course is called Systems Engineering in the catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
+
+\medskip
+
+The course text is Ogata's \textit{System Dynamics}, which is a pretty lousy book, I'd recommend reading the first few chapters of Nise or FPE instead. I can provide PDFs if you can't find them yourselves. Read the syllabus, it's pretty in depth.
+
+\medskip
+
+Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Notebook and record his lectures. YMMV if you don't bother coming to class.
+
+\bigskip
+\large\textbf{2 - Gradients Make Stuff Flow (Very Hand-Wavey Edition)} \\
+\normalsize
+
+Let's start by throwing out some systems and testing familiarity with first-order systems and simplified models.
+\begin{itemize}[noitemsep,topsep=0.5pt]
+    \item Emptying a water tank
+    \item Cooling of a lightbulb
+    \item Discharge of an RC circuit
+\end{itemize}
+
+\bicture{1_sys1}
+
+A cylindrical tank is filled to a level \(h\), has a cross-sectional area of \(A\), and an outflow rate of \(Q_\text{out}\). The pressure outside the tank is \(P_{\infty}\). Can we derive a governing equation for this system? Well, we can try with a few physical principles.
+
+\medskip
+
+Let's start with a \textbf{conservation law}. We know there's a volume \(\volume\) of water proportional to the value of \(h\). Or\dots
+
+\vspace{-0.1in}
+\[\Delta \volume = A \Delta h\]
+
+We'll take the time derivative of that equation to get some more familiar variables. (You might recognize the math here from related rates in Ma111.)
+
+\[\frac{d}{dt} \qty[\Delta \volume = A \Delta h] = -Q_\text{out}\]
+
+That's not very useful yet. Let's leverage some prior circuits knowledge here...charge moves because of a \textbf{voltage difference} \(\Delta V\), and comparably, fluid moves because of a \textbf{pressure difference}. Ohm's law! We'll come back to that, but the main takeaway here is that the outflow \(Q_\text{out}\) is related to the difference between the pressure inside the tank \(P\) and the atmospheric pressure \(P_\infty\).
+
+\medskip
+
+That circuits analogy comes in handy really often, because it turns out Ohm's law translates directly into fluid flow. 
+
+\[\Delta V = V - V_0 = IR\]
+\[\Delta P = P-P_\infty = Q_\text{out} R\]
+
+These are called \textbf{constitutive equations}, loosely defined as a proportionality using a material property. (The flow is proportional to a level difference, or gradient.)
+
+\medskip
+
+We'll generalize a bit soon, but for now I understand if you don't get it. It's still very hand-wavey.
+
+\medskip
+
+Let's leverage some hydrostatics now. The tank is open to the atmosphere at the top, so we can actually derive an expression for \(P\), the pressure at the base of the tank. We'll also define \(\rho\), the density of the fluid, and \(C\), or capacitance, as \(\frac{A}{\rho g}\), because why the hell not. It ends up being useful in the circuit analogy.
+
+\[\Delta P = \rho g \Delta h = \rho g \frac{\Delta \volume}{A} = \frac{1}{C} \Delta \volume\]
+\[C = \frac{A}{\rho g}\]
+
+OK, I think we're all set. I've been pretty lax with the ``delta's", but it should still be readable. Let me know if things need clarification.
+
+\[\dot{\volume} = -Q_\text{out}\]
+\[C \dot{\Delta P} = - \frac{\Delta P}{R}\]
+\[\boxed{RC \dot{\Delta P} + {\Delta P} = 0}\]
+
+This is a really nice differential equation. It looks like the equation for an RC circuit if you've seen those before, with the voltage differentials swapped out for pressure differentials.
+
+\medskip
+
+Let's move onto the second example: the cooling of a lightbulb. When we turn off the lightbulb, how can we measure the temperature over time?
+
+\bicture{1_sys2}
+
+The bulb is initially very hot (with temperature \(T\)) compared to its environment (which has temperature \(T_\infty\)). Heat is flowing outwards at \(\dot{q}_\text{out}\).\footnote[1]{I'm not a fan of the usual notation here, so I'm using \(\dot{q}\) for the flow of heat and \(q\) for heat.} This is seeming very familiar...a temperature difference is driving heat to leave through the resistance \(R\) of the bulb.
+
+\medskip
+
+Let's go through the steps again. What's being conserved here?\footnote[2]{Someone said kinetic energy. What a statistical mechanics-esque answer.} Internal energy! (Or heat, since there's no work in this system.) It might be a bit early in the semester to have seen the capacitive relationship relating heat \(q\) and temperature \(T\) in ESC330, but here it is:
+
+\vspace{-0.1in}
+\[\Delta q = C \Delta T\]
+
+Differentiate across the board\dots
+
+\vspace{-0.1in}
+\[\frac{d}{dt} \qty(C \Delta T) = C\dot{T} = -\dot{q}_\text{out}\]
+
+And now we're just chugging through the motions. Next is a constitutive law (which looks shudderingly close to Ohm's!):
+
+\vspace{-0.1in}
+\[\Delta T = T - T_\infty = \dot{q}_\text{out} R\]
+
+Using this and the conservation equation, we construct:
+
+\vspace{-0.1in}
+\[\boxed{RC \dot{\Delta T} + \Delta T = 0}\]
+
+Again. Familiar. Very familiar. Maybe there's some unifying theory in the background here.
+
+\bigskip
+\large\textbf{3 - Solving that Damn Equation (and Time Constants)} \\
+\normalsize
+
+We'll generalize that equation to \(\tau \dot{y} + y = 0\). This is a 1st-order differential equation. Let's throw in an initial condition \(y(0)=y_0\) just so we don't have any undetermined constants at the end.
+
+\medskip
+
+Let's guess a solution \(y(t) = ce^{\alpha t}\) we find the time derivative \(\dot{y}(t) = \alpha ce^{\alpha t} = \alpha y\). and plug in.
+
+\vspace{-0.1in}
+\[\tau \dot{y} + y = 0\]
+\[\tau \alpha e^{\alpha t} + e^{\alpha t} = 0\]
+\[(\tau \alpha + 1) \; e^{\alpha t} = 0\]
+\[\alpha = -\frac{1}{\tau}\]
+\[y(t) = ce^{-\frac{t}{\tau}} = y_0 \; e^{-\frac{t}{\tau}}\]
+
+If you look at the graph, it's just exponential decay from \((0, y_0)\). We call \(\tau\) the \textbf{time constant} of the system. Different systems have different time constants. (Notably, \(RC\) always has units of time). The time constant dictates how quickly the exponential decays. The smaller the time constant, the faster the decay.
+
+\medskip
+
+Here's a big one: the time constant is the time at which the curve has approximately 37\% of its value left (or loses approximately 63\% of its value). This is because:
+
+\vspace{-0.1in}
+\[y(t=\tau) = y_0 \; e^{-1} \approx 0.37 y_0\]
+
+\bigskip
+\large\textbf{4 - The RC Circuit and Final Generalization} \\
+\normalsize
+
+Say we have an RC circuit with a full capacitor. 
+
+\bicture{2_rc}
+
+The outflow of charge from the capacitor is represented as a negative current:
+\vspace{-0.1in}
+\[\dot{q} = -I_\text{out}\]
+
+And Ohm's law:
+\vspace{-0.1in}
+\[V = I_\text{out} R = \dot{q} R\]
+
+Finally, we deal in the capacitive relationship (from Physics II):
+\vspace{-0.1in}
+\[q = C\Delta V\]
+
+Chug everything together and we get:
+\vspace{-0.1in}
+\[C\dot{\Delta V} = -\frac{\Delta V}{R}\]
+\[\boxed{RC \dot{\Delta V} + \Delta V = 0}\]
+
+which is the same equation we've gotten before. (Notably, we don't have to have this equation in terms of the voltage difference; as you'll see in ESC221, there's a form of the equation in terms of current as well.)
+
+\medskip
+
+Final takeaways:
+\begin{itemize}[noitemsep,topsep=0.5pt]
+    \item Most 1st-order systems are pretty much the same mathematically!
+    \item \textbf{Level differences make stuff flow.}
+\end{itemize}
+
+\medskip
+
+``Stuff'' isn't the greatest word for something like this, but that's the best we have. Stuff can be stored, like charge in a capacitor, or fluid in a tank, or heat in a reservoir. These tenets mean we have widely applicable rules for how systems work.
+
+\[\text{Stuff} = \text{Capacitance} \times \text{Level Difference}\]
+\[\text{Level Difference} = \text{Flow of Stuff} \times \text{Resistance}\]
+
+Also conservation. That's a biggie.
+\[\text{Flow of Stuff} = \text{Flow In} - \text{Flow Out}\]
+
+We've only discussed scenarios where there isn't anything flowing in. In these cases, to solve nonhomogeneous differential equations, we'll have to use more specialized methods from Ma240, like the Laplace transform or the method of undetermined coefficients (or as I affectionately call it, MUC).
+
+\bigskip
+\large\textbf{5 - Let's Throw in an Input} \\
+\normalsize
+
+A more simple form of the governing equation for one of these 1st-order systems is:
+
+\vspace{-0.1in}
+\[\tau \dot{y} + y = k\UnitStep\]
+
+when we have a constant input. Think of it as turning on a light switch at time \(t=0\). \(k\) is just a scale factor, and \(\UnitStep\) is the unit-step function, which is just \(0\) when \(t<0\) and \(1\) when \(t>0\).
+
+\vspace{-0.1in}
+\[y(t) = ce^{-\frac{t}{\tau}} + k\]
+
+For the initial condition \(y(0) = y_0\), the undetermined coefficient \(c=y_0 - k\). Here's our updated solution:
+
+\vspace{-0.1in}
+\[y(t) = y_0 e^{-\frac{t}{\tau}} + k(1-e^{-\frac{t}{\tau}})\]
+
+When we graph this function for \(y(0) = 0\), we see that it gradually grows towards \(y=k\). Now we can analyze exponential growth. You see this behavior everywhere, like when you change a thermostat setting and the temperature slowly creeps towards your choice. This is what we call a \textbf{step response}.
+
+\bicture{2_step}
+
+How could we find the time constant of this response? We do what we did before: at what time does the function reach 63\% of its final value?
+
+\medskip
+
+The step input is just one of the test inputs we usually use; we'll look at a few more as the course progresses (such as sine waves, etc.).
+
+\bigskip
+\large\textbf{6 - Our Second Order of Business} \\
+\normalsize
+
+1st-order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote[4]{Prove it!}
+
+\medskip
+
+2nd-order systems, on the other hand, \textit{can} oscillate by themselves. Try to convince yourself of this mathematically just based on what oscillation is.
+
+\bicture{2_unf}
+
+Mass-spring systems are models of everything in the world, as long as you use enough mass-spring systems. They're really nice because they provide us with the intuition for more complicated systems. 
+
+\medskip
+
+Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote[1]{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
+
+\vspace{-0.1in}
+\[m\ddot{q} = -kq - b\dot{q}\]
+
+Or in its more familiar form:
+
+\vspace{-0.1in}
+\[m\ddot{q} + b\dot{q} + kq = 0\]
+
+This is the famed mass-spring equation. Say we have an input - a force \(u\) acting on the mass in the positive direction. Now our equation of motion is:
+
+\vspace{-0.1in}
+\[m\ddot{q} + b\dot{q} + kq = u\]
+
+\end{flushleft}
+\end{onehalfspacing}
+\end{document}
