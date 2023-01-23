@@ -1,8 +1,8 @@
-PWD c:/Users/Ben/Desktop/tex stuff/251
+PWD c:/Users/Ben/Desktop/tex stuff/_251
 INPUT c:/texlive/2021/texmf.cnf
 INPUT c:/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Ben/Desktop/tex stuff/251/_systems.tex
+INPUT c:/Users/Ben/Desktop/tex stuff/_251/_systems.tex
 OUTPUT _systems.log
 INPUT c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
@@ -948,12 +948,29 @@ INPUT ./2_unf.png
 INPUT 2_unf.png
 INPUT ./2_unf.png
 INPUT ./2_unf.png
+INPUT ./2_cpx.png
+INPUT 2_cpx.png
+INPUT ./2_cpx.png
+INPUT ./2_cpx.png
+INPUT ./2_dumb.png
+INPUT 2_dumb.png
+INPUT ./2_dumb.png
+INPUT ./2_dumb.png
+INPUT ./2_cpx2.png
+INPUT 2_cpx2.png
+INPUT ./2_cpx2.png
+INPUT ./2_cpx2.png
+INPUT ./5_env.png
+INPUT 5_env.png
+INPUT ./5_env.png
+INPUT ./5_env.png
 INPUT _systems.aux
 INPUT ./_systems.out
 INPUT ./_systems.out
 INPUT c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb

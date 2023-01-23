@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  19 JAN 2023 10:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  23 JAN 2023 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Ben/Desktop/tex stuff/251/_systems.tex"
-(c:/Users/Ben/Desktop/tex stuff/251/_systems.tex
+**"c:/Users/Ben/Desktop/tex stuff/_251/_systems.tex"
+(c:/Users/Ben/Desktop/tex stuff/_251/_systems.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2021-11-22> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -670,23 +670,69 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[5 <./2_step.png> <./2_unf.png>] (./_systems.aux)
+[5 <./2_step.png> <./2_unf.png>]
+<2_cpx.png, id=63, 203.76125pt x 126.4725pt>
+File: 2_cpx.png Graphic file (type png)
+<use 2_cpx.png>
+Package pdftex.def Info: 2_cpx.png  used on input line 307.
+(pdftex.def)             Requested size: 183.36476pt x 113.81102pt.
+<2_dumb.png, id=64, 205.26688pt x 158.5925pt>
+File: 2_dumb.png Graphic file (type png)
+<use 2_dumb.png>
+Package pdftex.def Info: 2_dumb.png  used on input line 311.
+(pdftex.def)             Requested size: 147.30968pt x 113.81102pt.
+
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[6 <./2_cpx.png>]
+<2_cpx2.png, id=72, 425.08812pt x 239.89626pt>
+File: 2_cpx2.png Graphic file (type png)
+<use 2_cpx2.png>
+Package pdftex.def Info: 2_cpx2.png  used on input line 313.
+(pdftex.def)             Requested size: 201.67247pt x 113.81102pt.
+<5_env.png, id=74, 381.425pt x 224.84pt>
+File: 5_env.png Graphic file (type png)
+<use 5_env.png>
+Package pdftex.def Info: 5_env.png  used on input line 352.
+(pdftex.def)             Requested size: 193.07497pt x 113.81102pt.
+
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[7 <./2_dumb.png> <./2_cpx2.png>]
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[8 <./5_env.png>] (./_systems.aux)
 Package rerunfilecheck Info: File `_systems.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21973 strings out of 478353
- 401841 string characters out of 5852094
+ 22018 strings out of 478353
+ 402468 string characters out of 5852094
  688434 words of memory out of 5000000
- 39702 multiletter control sequences out of 15000+600000
+ 39742 multiletter control sequences out of 15000+600000
  410732 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 88i,12n,91p,513b,530s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on _systems.pdf (5 pages, 273501 bytes).
+ 88i,12n,91p,514b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on _systems.pdf (8 pages, 623211 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

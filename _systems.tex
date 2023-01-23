@@ -114,11 +114,11 @@ Let's move onto the second example: the cooling of a lightbulb. When we turn off
 
 \bicture{1_sys2}
 
-The bulb is initially very hot (with temperature \(T\)) compared to its environment (which has temperature \(T_\infty\)). Heat is flowing outwards at \(\dot{q}_\text{out}\).\footnote[1]{I'm not a fan of the usual notation here, so I'm using \(\dot{q}\) for the flow of heat and \(q\) for heat.} This is seeming very familiar...a temperature difference is driving heat to leave through the resistance \(R\) of the bulb.
+The bulb is initially very hot (with temperature \(T\)) compared to its environment (which has temperature \(T_\infty\)). Heat is flowing outwards at \(\dot{q}_\text{out}\).\footnote{I'm not a fan of the usual notation here, so I'm using \(\dot{q}\) for the flow of heat and \(q\) for heat.} This is seeming very familiar...a temperature difference is driving heat to leave through the resistance \(R\) of the bulb.
 
 \medskip
 
-Let's go through the steps again. What's being conserved here?\footnote[2]{Someone said kinetic energy. What a statistical mechanics-esque answer.} Internal energy! (Or heat, since there's no work in this system.) It might be a bit early in the semester to have seen the capacitive relationship relating heat \(q\) and temperature \(T\) in ESC330, but here it is:
+Let's go through the steps again. What's being conserved here?\footnote{Someone said kinetic energy. What a statistical mechanics-esque answer.} Internal energy! (Or heat, since there's no work in this system.) It might be a bit early in the semester to have seen the capacitive relationship relating heat \(q\) and temperature \(T\) in ESC330, but here it is:
 
 \vspace{-0.1in}
 \[\Delta q = C \Delta T\]
@@ -246,7 +246,7 @@ The step input is just one of the test inputs we usually use; we'll look at a fe
 \large\textbf{6 - Our Second Order of Business} \\
 \normalsize
 
-1st-order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote[4]{Prove it!}
+1st-order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote{Prove it!}
 
 \medskip
 
@@ -258,7 +258,8 @@ Mass-spring systems are models of everything in the world, as long as you use en
 
 \medskip
 
-Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote[1]{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
+Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
+
 
 \vspace{-0.1in}
 \[m\ddot{q} = -kq - b\dot{q}\]
@@ -272,6 +273,96 @@ This is the famed mass-spring equation. Say we have an input - a force \(u\) act
 
 \vspace{-0.1in}
 \[m\ddot{q} + b\dot{q} + kq = u\]
+
+This is a linear differential equation, so we'll solve this by plugging in an educated guess. Let's try \(q(t) = Ae^{st}\).
+
+\vspace{-0.1in}
+\[ms^2 Ae^{st} + bs Ae^{st} + kAe^{st} = u\]
+\[ms^2 + bs + k = u\]
+
+First, we'll solve the homogeneous equation, or the case where \(u=0\).\footnote{If you're curious why we do this, you can read up on it in a linear algebra textbook. Think it's theorem 3.9 in Friedberg's Linear Algebra.}
+
+\[ms^2 + bs + k = 0\]
+
+This is known as the characteristic (or auxiliary) equation. We can now use algebra to solve for the roots of the equation, and equivalently, the solution of the differential equation.
+
+\[s_{1, 2} = \frac{-b \pm \sqrt{b^2 - 4mk}}{2m}\]
+
+These are also called the \textbf{poles} of the system, but we're getting ahead of ourselves. Let's simplify further.
+
+\[s_{1, 2} = \frac{-b \pm \sqrt{b^2 - 4mk}}{2m} = -\frac{b}{2m} \pm \sqrt{\frac{b^2 - 4mk}{4m^2}} = -\frac{b}{2m} \pm \sqrt\frac{b}{2m}^2 - \frac{k}{m}\]
+
+We define the \textbf{natural frequency} \(\omega_n = \sqrt{\frac{k}{m}}\) and the \textbf{damping ratio} \(\zeta = \frac{b}{2m\omega_n}\). Using these definitions, we can rewrite the poles as:
+
+\[s_{1, 2} = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 - 1}\]
+
+I just realized this is my second time having this lecture today, so I'm just going to copy-paste my ME301 notes here.
+
+\rule{\textwidth}{1pt}
+\large\textbf{6A - Intermezzo - Complex Analysis} \\
+\normalsize
+
+We can locate a complex number in the complex plane using Cartesian coordinates, where \(a\) is the real part and \(b\) is the imaginary part of a point \(z\). The convention is \(z = a+bi = r \cos{\theta}\).
+
+\bicture{2_cpx}
+
+We can interpret this in a polar sense, where \(\theta\) is the angle from the real axis and \(r\) is the distance from the origin to the point. We represent \(z\) as a phasor: \(re^{i\theta}\) using Euler's formula. It's not difficult to translate between Cartesian coordinates and polar coordinates, but I'll dump the formulas here anyway.
+
+\bicture{2_dumb}
+
+\bicture{2_cpx2}
+
+Ah, also the complex conjugate of a number \(z\) is \(\overline{z}\). For \(z = a+bi\), \(\overline{z} = a-bi\).
+
+\bigskip
+\large\textbf{6B - Damping (You Guys are Going to See This Over and Over and Over)} \\
+\normalsize
+
+Most mechanical systems shy away from having a bunch of damping. The damping ratio \(\zeta\) usually hovers around 0.1 or something.
+
+\medskip
+
+When \(\zeta = 0\) (or the system is undamped), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
+\medskip
+
+``\textit{What next? Euler guy.}''
+
+\vspace{-0.1in}
+\begin{flushright}
+    -Prof. Luchtenburg
+\end{flushright}
+
+\vspace{-0.1in}
+\[x(t) = A_1 e^{i\omega_n t} + A_2 e^{- i \omega_n t} \; \footnote{Apparently \(A_1\) and \(A_2\) are complex conjugates. Don't quote me on that.} = A_1 (\cos(\omega_n t) + i \sin(\omega_n t)) + A_2 (\cos(\omega_n t) - i \sin(\omega_n t))\]
+\vspace{-0.3in}
+\[= (A_1 + A_2) \cos(\omega_n t) + i(A_1 - A_2) \sin(\omega_n t) = C_1 \cos(\omega_n t) + C_2 \sin(\omega_n t)\]
+
+This reasoning carries over if we pick a damping ratio \(\zeta\) between 0 and 1 (or the system is underdamped). The poles are:
+
+\vspace{-0.1in}
+\[s_{1, 2} = -\zeta \omega_n \pm \sqrt{\omega_n^2 (\zeta^2 - 1)} = -\zeta \omega_n \pm i \omega_n \sqrt{1 - \zeta^2} = \sigma \omega_n \pm \omega_d i\] 
+
+We define the damped frequency \(\omega_d = \omega_n \sqrt{1-\zeta^2}\). (In practice, \(\omega_d \approx \omega_n\), because \(\zeta \ll 1\).) Additionally, we define \(\sigma = i\omega_n\) for some fucking reason. Thus, our solution is:
+
+\vspace{-0.1in}
+\[x(t) = A_1 e^{(-\sigma + i\omega_d) t} + A_2 e^{(-\sigma - i\omega_d) t} = e^{-\sigma t} (C_1 \cos(\omega_n t) + C_2 \sin(\omega_n t))\]
+
+In the lattermost form, it's obvious that \(\sigma\) in fact has a use other than bookkeeping; it defines the exponential envelope by which the oscillation decays.
+
+\bicture{5_env}
+
+Notably, the time constant \(\tau\) of the envelope is equal to \(1/\sigma\). Thus, we can eyeball the value of \(\sigma\) based on how we'd find the time constant (the value \(63\%\) less than the \(y\)-intercept of the envelope).
+
+\vspace{-0.1in}
+\[x(t) = e^{-\sigma t} \sin(\omega_d t + \varphi)\]
+
+
+
+\rule{\textwidth}{1pt}
+
+\bigskip
+\large\textbf{7 - Huh?} \\
+\normalsize
 
 \end{flushleft}
 \end{onehalfspacing}
