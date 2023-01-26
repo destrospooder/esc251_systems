@@ -1,8 +1,8 @@
-PWD c:/Users/Ben/Desktop/tex stuff/_251
+PWD c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts
 INPUT c:/texlive/2021/texmf.cnf
 INPUT c:/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Ben/Desktop/tex stuff/_251/_systems.tex
+INPUT c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex
 OUTPUT _systems.log
 INPUT c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2021/texmf-dist/tex/latex/base/article.cls

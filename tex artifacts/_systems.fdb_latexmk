@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1674756967 "c:/Users/Ben/Desktop/tex stuff/_251/_systems.tex" "_systems.pdf" "_systems" 1674756969
+["pdflatex"] 1674757514 "c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex" "_systems.pdf" "_systems" 1674757516
   "1_sys1.png" 1674138991 12321 66b1730dcab841f82162cf749fccfcc7 ""
   "1_sys2.png" 1674139432 25249 959360440a38dfccd35dda3bb0089f66 ""
   "2_cpx.png" 1674146065 51006 feb1ca5eec1bfa3c628fcabe49f8ac5f ""
@@ -11,10 +11,10 @@
   "2_unf.png" 1674141249 23136 83cff4578d1327a40fcb56172eec89d0 ""
   "5_env.png" 1674491264 151901 af2021f13fe55b4db744f8c33d36d84c ""
   "7_fpe.png" 1674742869 20357 0cb24af30286acccfd04e04a01b6f163 ""
-  "_systems.aux" 1674756969 686 6e7f9950abf0138bbeecbc9a0f48bfdf "pdflatex"
-  "_systems.out" 1674756969 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "_systems.tex" 1674756967 20655 79668500de61cdede71b878f5809c6d4 ""
-  "c:/Users/Ben/Desktop/tex stuff/_251/_systems.tex" 1674756967 20655 79668500de61cdede71b878f5809c6d4 ""
+  "_systems.aux" 1674757516 686 6e7f9950abf0138bbeecbc9a0f48bfdf "pdflatex"
+  "_systems.out" 1674757515 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "_systems.tex" 1674757513 20668 7cd2b612de22b2cf1e9a8856d8901f0c ""
+  "c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex" 1674757513 20668 7cd2b612de22b2cf1e9a8856d8901f0c ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1639425966 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1639428288 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1639426673 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
