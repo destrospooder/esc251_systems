@@ -964,6 +964,10 @@ INPUT ./5_env.png
 INPUT 5_env.png
 INPUT ./5_env.png
 INPUT ./5_env.png
+INPUT ./7_fpe.png
+INPUT 7_fpe.png
+INPUT ./7_fpe.png
+INPUT ./7_fpe.png
 INPUT _systems.aux
 INPUT ./_systems.out
 INPUT ./_systems.out
@@ -976,6 +980,7 @@ INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb

@@ -29,18 +29,25 @@
 \newcommand{\Integer}{\mathbb{Z}}
 \newcommand{\Natural}{\mathbb{N}}
 \newcommand{\V}[1]{\overrightarrow{#1}}
-\newcommand{\bicture}[1]{\begin{center}
+\newcommand{\Volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+
+\newcommand{\bicture}[1]{
+\begin{center}
     {\includegraphics[height=4cm]{#1}}
 \end{center}}
-\newcommand{\volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newcommand{\bitle}[1]{
+\bigskip
+\large\textbf{#1} \\
+\normalsize
+}
+
 
 \begin{document}
 \begin{onehalfspacing}
 
 \begin{flushleft}
 
-\large\textbf{1 - Course Overview} \\
-\normalsize
+\bitle{1 - Course Overview}
 
 The course is called Systems Engineering in the catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
 
@@ -52,9 +59,7 @@ The course text is Ogata's \textit{System Dynamics}, which is a pretty lousy boo
 
 Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Notebook and record his lectures. YMMV if you don't bother coming to class.
 
-\bigskip
-\large\textbf{2 - Gradients Make Stuff Flow (Very Hand-Wavey Edition)} \\
-\normalsize
+\bitle{2 - Gradients Make Stuff Flow (Very Hand-Wavey Edition)}
 
 Let's start by throwing out some systems and testing familiarity with first-order systems and simplified models.
 \begin{itemize}[noitemsep,topsep=0.5pt]
@@ -69,14 +74,14 @@ A cylindrical tank is filled to a level \(h\), has a cross-sectional area of \(A
 
 \medskip
 
-Let's start with a \textbf{conservation law}. We know there's a volume \(\volume\) of water proportional to the value of \(h\). Or\dots
+Let's start with a \textbf{conservation law}. We know there's a volume \(\Volume\) of water proportional to the value of \(h\). Or\dots
 
 \vspace{-0.1in}
-\[\Delta \volume = A \Delta h\]
+\[\Delta \Volume = A \Delta h\]
 
 We'll take the time derivative of that equation to get some more familiar variables. (You might recognize the math here from related rates in Ma111.)
 
-\[\frac{d}{dt} \qty[\Delta \volume = A \Delta h] = -Q_\text{out}\]
+\[\frac{d}{dt} \qty[\Delta \Volume = A \Delta h] = -Q_\text{out}\]
 
 That's not very useful yet. Let's leverage some prior circuits knowledge here...charge moves because of a \textbf{voltage difference} \(\Delta V\), and comparably, fluid moves because of a \textbf{pressure difference}. Ohm's law! We'll come back to that, but the main takeaway here is that the outflow \(Q_\text{out}\) is related to the difference between the pressure inside the tank \(P\) and the atmospheric pressure \(P_\infty\).
 
@@ -97,12 +102,12 @@ We'll generalize a bit soon, but for now I understand if you don't get it. It's 
 
 Let's leverage some hydrostatics now. The tank is open to the atmosphere at the top, so we can actually derive an expression for \(P\), the pressure at the base of the tank. We'll also define \(\rho\), the density of the fluid, and \(C\), or capacitance, as \(\frac{A}{\rho g}\), because why the hell not. It ends up being useful in the circuit analogy.
 
-\[\Delta P = \rho g \Delta h = \rho g \frac{\Delta \volume}{A} = \frac{1}{C} \Delta \volume\]
+\[\Delta P = \rho g \Delta h = \rho g \frac{\Delta \Volume}{A} = \frac{1}{C} \Delta \Volume\]
 \[C = \frac{A}{\rho g}\]
 
 OK, I think we're all set. I've been pretty lax with the ``delta's", but it should still be readable. Let me know if things need clarification.
 
-\[\dot{\volume} = -Q_\text{out}\]
+\[\dot{\Volume} = -Q_\text{out}\]
 \[C \dot{\Delta P} = - \frac{\Delta P}{R}\]
 \[\boxed{RC \dot{\Delta P} + {\Delta P} = 0}\]
 
@@ -140,9 +145,7 @@ Using this and the conservation equation, we construct:
 
 Again. Familiar. Very familiar. Maybe there's some unifying theory in the background here.
 
-\bigskip
-\large\textbf{3 - Solving that Damn Equation (and Time Constants)} \\
-\normalsize
+\bitle{3 - Solving that Damn Equation (and Time Constants)}
 
 We'll generalize that equation to \(\tau \dot{y} + y = 0\). This is a 1st-order differential equation. Let's throw in an initial condition \(y(0)=y_0\) just so we don't have any undetermined constants at the end.
 
@@ -166,9 +169,7 @@ Here's a big one: the time constant is the time at which the curve has approxima
 \vspace{-0.1in}
 \[y(t=\tau) = y_0 \; e^{-1} \approx 0.37 y_0\]
 
-\bigskip
-\large\textbf{4 - The RC Circuit and Final Generalization} \\
-\normalsize
+\bitle{4 - The RC Circuit and Final Generalization}
 
 Say we have an RC circuit with a full capacitor. 
 
@@ -213,9 +214,7 @@ Also conservation. That's a biggie.
 
 We've only discussed scenarios where there isn't anything flowing in. In these cases, to solve nonhomogeneous differential equations, we'll have to use more specialized methods from Ma240, like the Laplace transform or the method of undetermined coefficients (or as I affectionately call it, MUC).
 
-\bigskip
-\large\textbf{5 - Let's Throw in an Input} \\
-\normalsize
+\bitle{5 - Let's Throw in an Input}
 
 A more simple form of the governing equation for one of these 1st-order systems is:
 
@@ -242,9 +241,7 @@ How could we find the time constant of this response? We do what we did before: 
 
 The step input is just one of the test inputs we usually use; we'll look at a few more as the course progresses (such as sine waves, etc.).
 
-\bigskip
-\large\textbf{6 - Our Second Order of Business} \\
-\normalsize
+\bitle{6 - Our Second Order of Business}
 
 1st-order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote{Prove it!}
 
@@ -259,7 +256,6 @@ Mass-spring systems are models of everything in the world, as long as you use en
 \medskip
 
 Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
-
 
 \vspace{-0.1in}
 \[m\ddot{q} = -kq - b\dot{q}\]
@@ -292,15 +288,19 @@ These are also called the \textbf{poles} of the system, but we're getting ahead 
 
 \[s_{1, 2} = \frac{-b \pm \sqrt{b^2 - 4mk}}{2m} = -\frac{b}{2m} \pm \sqrt{\frac{b^2 - 4mk}{4m^2}} = -\frac{b}{2m} \pm \sqrt\frac{b}{2m}^2 - \frac{k}{m}\]
 
-We define the \textbf{natural frequency} \(\omega_n = \sqrt{\frac{k}{m}}\) and the \textbf{damping ratio} \(\zeta = \frac{b}{2m\omega_n}\). Using these definitions, we can rewrite the poles as:
+We define the \textbf{natural frequency} \(\omega_n = \sqrt{\frac{k}{m}}\) and the \textbf{damping ratio} \(\zeta = \frac{b}{2m\omega_n}\). Using these definitions, we can reorganize the mass-spring equation in terms of these variables.
+
+\vspace{-0.1in}
+\[m\ddot{q} + b\dot{q} + kq = 0 \qquad \to \qquad \ddot{q} + 2\zeta\omega_n \dot{q} + \omega_n^2 q = 0\]
+
+And the poles of this equation are:
 
 \[s_{1, 2} = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 - 1}\]
 
 I just realized this is my second time having this lecture today, so I'm just going to copy-paste my ME301 notes here.
 
 \rule{\textwidth}{1pt}
-\large\textbf{6A - Intermezzo - Complex Analysis} \\
-\normalsize
+\bitle{6A - Intermezzo - Complex Analysis}
 
 We can locate a complex number in the complex plane using Cartesian coordinates, where \(a\) is the real part and \(b\) is the imaginary part of a point \(z\). The convention is \(z = a+bi = r \cos{\theta}\).
 
@@ -314,13 +314,7 @@ We can interpret this in a polar sense, where \(\theta\) is the angle from the r
 
 Ah, also the complex conjugate of a number \(z\) is \(\overline{z}\). For \(z = a+bi\), \(\overline{z} = a-bi\).
 
-\bigskip
-\large\textbf{6B - Damping (You Guys are Going to See This Over and Over and Over)} \\
-\normalsize
-
-Most mechanical systems shy away from having a bunch of damping. The damping ratio \(\zeta\) usually hovers around 0.1 or something.
-
-\medskip
+\bitle{6B - Damping (You Guys are Going to See This Over and Over and Over)}
 
 When \(\zeta = 0\) (or the system is undamped), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
 \medskip
@@ -340,14 +334,14 @@ When \(\zeta = 0\) (or the system is undamped), we have the poles \(s_{1, 2} = \
 This reasoning carries over if we pick a damping ratio \(\zeta\) between 0 and 1 (or the system is underdamped). The poles are:
 
 \vspace{-0.1in}
-\[s_{1, 2} = -\zeta \omega_n \pm \sqrt{\omega_n^2 (\zeta^2 - 1)} = -\zeta \omega_n \pm i \omega_n \sqrt{1 - \zeta^2} = \sigma \omega_n \pm \omega_d i\] 
+\[s_{1, 2} = -\zeta \omega_n \pm \sqrt{\omega_n^2 (\zeta^2 - 1)} = -\zeta \omega_n \pm i \omega_n \sqrt{1 - \zeta^2} = \sigma \pm i \omega_d\] 
 
-We define the damped frequency \(\omega_d = \omega_n \sqrt{1-\zeta^2}\). (In practice, \(\omega_d \approx \omega_n\), because \(\zeta \ll 1\).) Additionally, we define \(\sigma = i\omega_n\) for some fucking reason. Thus, our solution is:
+We define the damped frequency \(\omega_d = \omega_n \sqrt{1-\zeta^2}\). (In practice, \(\omega_d \approx \omega_n\), because \(\zeta \ll 1\).) Additionally, we define \(\sigma = i\omega_n\). After substituting these new variables in, our solution becomes:
 
 \vspace{-0.1in}
 \[x(t) = A_1 e^{(-\sigma + i\omega_d) t} + A_2 e^{(-\sigma - i\omega_d) t} = e^{-\sigma t} (C_1 \cos(\omega_n t) + C_2 \sin(\omega_n t))\]
 
-In the lattermost form, it's obvious that \(\sigma\) in fact has a use other than bookkeeping; it defines the exponential envelope by which the oscillation decays.
+In the lattermost form, it's obvious that \(\sigma\) in fact has a use other than bookkeeping; it defines the exponential \textbf{envelope} by which the oscillation decays. An envelope is a function that outlines how a function grows/decays (it's the red line in the figure below).
 
 \bicture{5_env}
 
@@ -356,13 +350,55 @@ Notably, the time constant \(\tau\) of the envelope is equal to \(1/\sigma\). Th
 \vspace{-0.1in}
 \[x(t) = e^{-\sigma t} \sin(\omega_d t + \varphi)\]
 
+Most mechanical systems tend to have a very low damping ratio (\(\zeta \simeq O(0.1)\)\footnote{Related rates of growth from Ma111, or big-O notation if you've taken ECE264.}), and as mentioned before, a good rule of thumb is that \(\omega_n = \omega_d\).
 
+\medskip
 
-\rule{\textwidth}{1pt}
+When we apply some initial conditions (like \(q(0) = q_0\) and \(\dot{q}(0) = v_0\)), our solution becomes:
 
-\bigskip
-\large\textbf{7 - Huh?} \\
-\normalsize
+\vspace{-0.1in}
+\[q(t) = e^{\sigma t} \qty(q_0 \cos(\omega_d t) + \frac{\sigma q_0 + v_0}{\omega_d} \sin(\omega_d t))\]
+
+When \(\zeta = 1\), or the system is critically damped, the poles are:
+
+\vspace{-0.1in}
+\[s_{1, 2} = -\zeta \omega_n\]
+
+We use a trick from differential equations to fake another linearly independent solution, just chuck on an extra \(t\).
+
+\vspace{-0.1in}
+\[q(t) = A_1 e^{-\zeta \omega_n t} + A_2 t e^{-\zeta \omega_n t}\]
+
+This doesn't really happen in the real world, but it's nice to cover all our bases. How about when \(\zeta > 1\)? We call this case overdamped, because our poles are:
+
+\vspace{-0.1in}
+\[s_{1, 2} = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 - 1}\]
+
+Both poles are negative here! Our solution is:
+
+\vspace{-0.1in}
+\[q(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t}\]
+
+\bitle{7 - Pole Plots}
+
+I've been emphasizing poles a lot in the last few pages, but why? What's the importance of these seemingly arbitrary constants? In fact, we can infer the dynamics of a system based on its poles.\footnote{This is the crux of a lot we do in ME351. If any of you remember what an eigenvalue is from Ma110, that'll come in handy in a bit.}
+
+\medskip
+
+To analyze poles, we use a graphical tool called a \textbf{pole plot}, the plot of the roots of the characteristic equation on the complex plane. Let's go down the list:
+
+\begin{itemize}[noitemsep]
+    \item When both poles are on the imaginary axis, the system is undamped.
+    \item When both poles are off the real axis, the system oscillates. If they're to the left of the imaginary axis, it'll decay exponentially, and if they're to the right of the imaginary axis, it'll grow exponentially.
+    \item If both poles are on the real axis to the left of the imaginary axis, it's overdamped.
+    \item Rule of thumb: if there is ANY pole to the right of the imaginary axis, the response blows up.
+\end{itemize}
+
+Here's a nice chart from FPE. Complex conjugates are omitted for simplicity.
+
+\begin{center}
+    {\includegraphics[height=8cm]{7_fpe}}
+\end{center}
 
 \end{flushleft}
 \end{onehalfspacing}
