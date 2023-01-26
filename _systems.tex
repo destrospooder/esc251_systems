@@ -49,7 +49,7 @@
 
 \bitle{1 - Course Overview}
 
-The course is called Systems Engineering in the catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
+The course is called Systems Engineering in the course catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
 
 \medskip
 
@@ -253,15 +253,15 @@ First order systems are honestly pretty boring. When we put in a step input, we 
 
 \medskip
 
-2nd-order systems, on the other hand, \textit{can} oscillate by themselves. Try to convince yourself of this mathematically just based on what oscillation is.
+Second order systems, on the other hand, \textit{can} oscillate by themselves. Try to convince yourself of this mathematically just based on what oscillation is.
 
 \bicture{2_unf}
 
-Mass-spring systems are models of everything in the world, as long as you use enough mass-spring systems. They're really nice because they provide us with the intuition for more complicated systems. 
+Mass-spring systems are pretty good models of everything in the world (as long as you use enough mass-spring systems). They're really nice because having a good understanding of ONE mass-spring system provides us with the intuition for more complicated systems. 
 
 \medskip
 
-Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
+Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so if you want to visualize the system, that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
 
 \vspace{-0.1in}
 \[m\ddot{q} = -kq - b\dot{q}\]
@@ -305,7 +305,6 @@ And the poles of this equation are:
 
 I just realized this is my second time having this lecture today, so I'm just going to copy-paste my ME301 notes here.
 
-\rule{\textwidth}{1pt}
 \bitle{6A - Intermezzo - Complex Analysis}
 
 We can locate a complex number in the complex plane using Cartesian coordinates, where \(a\) is the real part and \(b\) is the imaginary part of a point \(z\). The convention is \(z = a+bi = r \cos{\theta}\).
@@ -322,7 +321,7 @@ Ah, also the complex conjugate of a number \(z\) is \(\overline{z}\). For \(z = 
 
 \bitle{6B - Damping (You Guys are Going to See This Over and Over and Over)}
 
-When \(\zeta = 0\) (or the system is undamped), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
+When \(\zeta = 0\) (or the system is \textbf{undamped}), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
 \medskip
 
 ``\textit{What next? Euler guy.}''
@@ -337,7 +336,7 @@ When \(\zeta = 0\) (or the system is undamped), we have the poles \(s_{1, 2} = \
 \vspace{-0.3in}
 \[= (A_1 + A_2) \cos(\omega_n t) + i(A_1 - A_2) \sin(\omega_n t) = C_1 \cos(\omega_n t) + C_2 \sin(\omega_n t)\]
 
-This reasoning carries over if we pick a damping ratio \(\zeta\) between 0 and 1 (or the system is underdamped). The poles are:
+This reasoning carries over if we pick a damping ratio \(\zeta\) between 0 and 1 (or the system is \textbf{underdamped}). The poles are:
 
 \vspace{-0.1in}
 \[s_{1, 2} = -\zeta \omega_n \pm \sqrt{\omega_n^2 (\zeta^2 - 1)} = -\zeta \omega_n \pm i \omega_n \sqrt{1 - \zeta^2} = \sigma \pm i \omega_d\] 
@@ -365,7 +364,7 @@ When we apply some initial conditions (like \(q(0) = q_0\) and \(\dot{q}(0) = v_
 \vspace{-0.1in}
 \[q(t) = e^{\sigma t} \qty(q_0 \cos(\omega_d t) + \frac{\sigma q_0 + v_0}{\omega_d} \sin(\omega_d t))\]
 
-When \(\zeta = 1\), or the system is critically damped, the poles are:
+When \(\zeta = 1\), or the system is \textbf{critically damped}, the poles are:
 
 \vspace{-0.1in}
 \[s_{1, 2} = -\zeta \omega_n\]
@@ -375,7 +374,7 @@ We use a trick from differential equations to fake another linearly independent 
 \vspace{-0.1in}
 \[q(t) = A_1 e^{-\zeta \omega_n t} + A_2 t e^{-\zeta \omega_n t}\]
 
-This doesn't really happen in the real world, but it's nice to cover all our bases. How about when \(\zeta > 1\)? We call this case overdamped, because our poles are:
+This doesn't really happen in the real world, but it's nice to cover all our bases. How about when \(\zeta > 1\)? We call this case \textbf{overdamped}, because our poles are:
 
 \vspace{-0.1in}
 \[s_{1, 2} = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 - 1}\]
@@ -387,7 +386,7 @@ Both poles are negative here! Our solution is:
 
 \bitle{7 - Pole Plots}
 
-I've been emphasizing poles a lot in the last few pages, but why? What's the importance of these seemingly arbitrary constants? In fact, we can infer the dynamics of a system based on its poles.\footnote{This is the crux of a lot we do in ME351. If any of you remember what an eigenvalue is from Ma110, that'll come in handy in a bit.}
+I've been emphasizing poles a lot in the last few pages, but why? What's the importance of these seemingly arbitrary values? In fact, we can infer the dynamics of a system based on its poles.\footnote{This is the crux of a lot we do in ME351. If any of you remember what an eigenvalue is from Ma110, that'll come in handy in a bit.}
 
 \medskip
 
@@ -395,7 +394,7 @@ To analyze poles, we use a graphical tool called a \textbf{pole plot}, the plot 
 
 \begin{itemize}[noitemsep]
     \item When both poles are on the imaginary axis, the system is undamped.
-    \item When both poles are off the real axis, the system oscillates. If they're to the left of the imaginary axis, it'll decay exponentially, and if they're to the right of the imaginary axis, it'll grow exponentially.
+    \item When both poles are off the real axis, the system oscillates. If they're to the left of the imaginary axis, it'll decay exponentially (underdamped), and if they're to the right of the imaginary axis, it'll grow exponentially.
     \item If both poles are on the real axis to the left of the imaginary axis, it's overdamped.
     \item Rule of thumb: if there is ANY pole to the right of the imaginary axis, the response blows up.
 \end{itemize}
@@ -405,6 +404,12 @@ Here's a nice chart from FPE. Complex conjugates are omitted for simplicity.
 \begin{center}
     {\includegraphics[height=8cm]{7_fpe}}
 \end{center}
+
+\bitle{8 - Discriminants}
+
+I'm going to stray off from Prof. Luchtenburg for a second because \textit{I} think this is useful. Your opinion might differ, if so, skip it.
+
+\textbf{WIP}
 
 \end{flushleft}
 \end{onehalfspacing}
