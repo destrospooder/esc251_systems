@@ -14,6 +14,17 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{tikz}
+\usepackage{titlesec}
+
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\titleformat{\section}
+  {\large\bfseries}{\thesection}{1em}{}
+
 \usetikzlibrary{positioning}
 
 \addtolength{\topmargin}{.5in}
@@ -28,26 +39,29 @@
 \newcommand{\UnitStep}{\mathscr{U}}
 \newcommand{\Integer}{\mathbb{Z}}
 \newcommand{\Natural}{\mathbb{N}}
-\newcommand{\V}[1]{\overrightarrow{#1}}
 \newcommand{\Volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
 
 \newcommand{\bicture}[1]{
 \begin{center}
     {\includegraphics[height=4cm]{#1}}
 \end{center}}
-\newcommand{\bitle}[1]{
-\bigskip
-\large\textbf{#1} \\
-\normalsize
-}
-
 
 \begin{document}
 \begin{onehalfspacing}
 
 \begin{flushleft}
 
-\bitle{1 - Course Overview}
+\thispagestyle{empty}
+\LARGE{System Dynamics - Spring 2023 Notes} \\
+\medskip
+\large{Benjamin Aziel}
+\normalsize
+
+\tableofcontents
+
+\pagebreak
+
+\section{Course Overview and Preface}
 
 The course is called Systems Engineering in the course catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
 
@@ -57,9 +71,17 @@ The course text is Ogata's \textit{System Dynamics}, which is a pretty lousy boo
 
 \medskip
 
-Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Notebook and record his lectures. YMMV if you don't bother coming to class.
+Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Notebook and record his lectures. Your mileage may vary if you don't bother coming to class.
 
-\bitle{2 - Gradients Make Stuff Flow (Very Hand-Wavey Edition)}
+\medskip
+
+Most figures here are taken from Prof. Luchtenburg's Class Notebook. When I take figures from another source, I will mention it there.
+
+\medskip
+
+I have this lousy habit of writing in the fourth person and cursing in my writing. Apologies in advance.
+
+\section{The First Order}
 
 Let's start by throwing out some systems and testing familiarity with first-order systems and simplified models.
 \begin{itemize}[noitemsep,topsep=0.5pt]
@@ -67,6 +89,8 @@ Let's start by throwing out some systems and testing familiarity with first-orde
     \item Cooling of a lightbulb
     \item Discharge of an RC circuit
 \end{itemize}
+
+\subsection{Gradients Make Stuff Flow (Very Hand-Wavey Edition)}
 
 \bicture{1_sys1}
 
@@ -133,7 +157,7 @@ Differentiate across the board\dots
 \vspace{-0.1in}
 \[\frac{d}{dt} \qty(C \Delta T) = C\dot{T} = -\dot{q}_\text{out}\]
 
-And now we're just chugging through the motions. Next is a constitutive relationship (which looks shudderingly close to Ohm's!):
+And now we're just chugging through the motions. Next is another constitutive relationship (which looks shudderingly close to Ohm's law!):
 
 \vspace{-0.1in}
 \[\Delta T = T - T_\infty = \dot{q}_\text{out} R\]
@@ -145,7 +169,7 @@ Using this and the conservation equation, we construct:
 
 Again. Familiar. Very familiar. Maybe there's some unifying theory in the background here.
 
-\bitle{3 - Solving that Damn Equation (and Time Constants)}
+\subsection{Solving that Damn Equation (and Time Constants)}
 
 We'll generalize that equation to what we call its \textbf{canonical form} \(\tau \dot{y} + y = 0\), a first order differential equation. Let's throw in an initial condition \(y(0)=y_0\) just so we don't have any undetermined constants at the end.
 
@@ -170,7 +194,7 @@ So what happens when we set \(t=\tau\)? Let's plug it in and find out.
 
 So the time constant is the time at which the system response has decayed to \(y_0 e^{-1}\), or approximately 37\% of its initial value. We can also reframe this definition as, ``the time constant is the time at which the system response has lost approximately 63\% of its initial value''. There is a different definition of the time constant for increasing systems that we will explore in the next section.
 
-\bitle{4 - The RC Circuit and Final Generalization}
+\subsection{The RC Circuit and Final Generalization}
 
 Say we have an RC circuit with a full capacitor. 
 
@@ -215,7 +239,7 @@ Also conservation. That's a biggie.
 
 We've only discussed scenarios where there isn't anything flowing in thus far. In these cases, to solve nonhomogeneous differential equations, we'll have to use more specialized methods from Ma240 instead of guessing and praying, like the Laplace transform or the method of undetermined coefficients (or as I affectionately call it, MUC).
 
-\bitle{5 - Let's Throw in an Input}
+\subsection{Let's Throw in an Input}
 
 A more simple form of the governing equation for one of these first order systems is:
 
@@ -239,15 +263,20 @@ When we graph this function for \(y_0 = 0\), we see that it gradually grows towa
 How could we find the time constant of this response? Let's take a look at what happens to \(y(t)\) at \(t=\tau\).
 
 \vspace{-0.1in}
-\[y(\tau) = y_0 e^{-\frac{\tau}{\tau}} + k(1-e^{-\frac{\tau}{\tau}})= y_0 e^{-1} + k(1-e^{-1}) = (y_0-k)e^{-1} + k\]
+\[y(\tau) = y_0 e^{-\frac{\tau}{\tau}} + k(1-e^{-\frac{\tau}{\tau}})= y_0 e^{-1} + k(1-e^{-1})\]
 
-Anyways, at \(t=\tau\), the system response will have accumulated 63\% of its steady state value.
+When we set \(y_0 = 0\), this further simplifies to:
+
+\vspace{-0.1in}
+\[y(\tau) = k(1-e^{-1}) \approx 0.63 k\]
+
+For this system, at \(t=\tau\), the system response will have accumulated 63\% of its steady state value.
 
 \medskip
 
 The step input is just one of the test inputs we usually use; we'll look at a few more as the course progresses (such as sinusoidal waves, delta functions, etc.).
 
-\bitle{6 - Our Second Order of Business}
+\section{Our Second Order of Business}
 
 First order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote{Prove it!}
 
@@ -261,7 +290,7 @@ Mass-spring systems are pretty good models of everything in the world (as long a
 
 \medskip
 
-Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so if you want to visualize the system, that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear here. That was pretty funny.}
+Say we have a mass-spring system where a mass \(m\) is attached to a wall with a spring \(k\) and a damper \(b\). Gravity isn't ``turned on'', so if you want to visualize the system, that mass is floating. The equation of motion for a positive displacement \(q\) is:\footnote{Prof. Luchtenburg went off on a tangent about Hooke being a genius for realizing that spring motion is linear near the origin here. That was pretty funny.}
 
 \vspace{-0.1in}
 \[m\ddot{q} = -kq - b\dot{q}\]
@@ -276,7 +305,7 @@ This is the famed mass-spring equation. Say we have an input - a force \(u\) act
 \vspace{-0.1in}
 \[m\ddot{q} + b\dot{q} + kq = u\]
 
-This is a linear differential equation, so we'll solve this by plugging in an educated guess. Let's try \(q(t) = Ae^{st}\).
+This is a linear differential equation, so we'll solve this by plugging in an educated guess. Let's try \(q(t) = Ae^{st}\), because differentiating this function \(n\) times just multiplies it by \(s^n\).
 
 \vspace{-0.1in}
 \[ms^2 Ae^{st} + bs Ae^{st} + kAe^{st} = u\]
@@ -286,7 +315,7 @@ First, we'll solve the homogeneous equation, or the case where \(u=0\).\footnote
 
 \[ms^2 + bs + k = 0\]
 
-This is known as the characteristic (or auxiliary) equation. We can now use algebra to solve for the roots of the equation, and equivalently, the solution of the differential equation.
+This is known as the characteristic (or auxiliary) equation. We can now use algebra to solve for the roots of the equation, or by proxy, the solution of the differential equation.
 
 \[s_{1, 2} = \frac{-b \pm \sqrt{b^2 - 4mk}}{2m}\]
 
@@ -305,21 +334,36 @@ And the poles of this equation are:
 
 I just realized this is my second time having this lecture today, so I'm just going to copy-paste my ME301 notes here.
 
-\bitle{6A - Intermezzo - Complex Analysis}
+\subsection{Intermezzo - Complex Analysis}
 
-We can locate a complex number in the complex plane using Cartesian coordinates, where \(a\) is the real part and \(b\) is the imaginary part of a point \(z\). The convention is \(z = a+bi = r \cos{\theta}\).
+Complex analysis is the study of functions of a complex variable \(z\), where \(z\) has a real component \(a\) and an imaginary component \(b\). Complex numbers show up all the time in this course, whenever anything oscillates, really (like mass-spring systems and pendula).
+
+\medskip
+
+To take our first plunge into complex analysis, we need to define the \textbf{imaginary unit} \(i\).\footnote{You'll see people, especially electrical engineers, use \(j\) instead, because \(i\) is commonly used for current. We're better than them.} For now, let's define \(i\) as one of the two solutions to the quadratic equation \(x^2 = -1\). (The other is \(-i\), of course.) This is really special, because now we can describe the solutions of ALL polynomials\footnote{Regardless if its coefficients are real or complex!} as the sum of a real number \(a\) and another real number \(b\) multiplied by the imaginary unit \(i\).
+
+\medskip
+
+Let's conjure up a graphical representation of these numbers using Cartesian coordinates, where we define one axis as ``real'' and the other as ``imaginary''. We'll call this the complex plane. An arbitrary point \(z = a+ ib\) is plotted below.
 
 \bicture{2_cpx}
 
-We can interpret this in a polar sense, where \(\theta\) is the angle from the real axis and \(r\) is the distance from the origin to the point. We represent \(z\) as a phasor: \(re^{i\theta}\) using Euler's formula. It's not difficult to translate between Cartesian coordinates and polar coordinates, but I'll dump the formulas here anyway.
+We can also interpret these numbers in the context of polar coordinates, where \(\theta\) is the angle between the vector from the origin to \(z\) and the real axis, and \(r\) is the magnitude of the aforementioned vector. It's not difficult to translate between Cartesian coordinates and polar coordinates, but I'll dump the formulas here anyway.
 
-\bicture{2_dumb}
+\vspace{-0.1in}
+\[a = r \cos{\theta} \qquad b = r \sin{\theta} \qquad r = \sqrt{a^2 + b^2} \qquad \theta = \arctan\qty({\frac{b}{a}})\]
 
-\bicture{2_cpx2}
+It'd be criminal to not mention Euler's formula\footnote{You can prove this using the Taylor series representation of \(e^{x}\). You should do it, it's \textit{very} rewarding}, which posits that:
 
-Ah, also the complex conjugate of a number \(z\) is \(\overline{z}\). For \(z = a+bi\), \(\overline{z} = a-bi\).
+\vspace{-0.1in}
+\[e^{i\theta} = \cos{\theta} + i \sin{\theta}\]
 
-\bitle{6B - Damping (You Guys are Going to See This Over and Over and Over)}
+A lot of the nuance of complex numbers is best understood by analyzing this \textbf{complex exponential}, especially because:
+
+\vspace{-0.1in}
+\[z = a+ib = r\cos{\theta} + ir \sin{\theta} = r (\cos{\theta} + i \sin{\theta}) = re^{i\theta}\]
+
+\subsection{Damping (You Guys are Going to See This Over and Over and Over)}
 
 When \(\zeta = 0\) (or the system is \textbf{undamped}), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
 \medskip
@@ -341,12 +385,12 @@ This reasoning carries over if we pick a damping ratio \(\zeta\) between 0 and 1
 \vspace{-0.1in}
 \[s_{1, 2} = -\zeta \omega_n \pm \sqrt{\omega_n^2 (\zeta^2 - 1)} = -\zeta \omega_n \pm i \omega_n \sqrt{1 - \zeta^2} = \sigma \pm i \omega_d\] 
 
-We define the damped frequency \(\omega_d = \omega_n \sqrt{1-\zeta^2}\). (In practice, \(\omega_d \approx \omega_n\), because \(\zeta \ll 1\).) Additionally, we define \(\sigma = i\omega_n\). After substituting these new variables in, our solution becomes:
+We define the \textbf{damped frequency} \(\omega_d = \omega_n \sqrt{1-\zeta^2}\). (In practice, \(\omega_d \approx \omega_n\), because \(\zeta \ll 1\).) Additionally, we define \(\sigma = i\omega_n\) (for some reason). After substituting these new variables in, our solution becomes:
 
 \vspace{-0.1in}
 \[x(t) = A_1 e^{(-\sigma + i\omega_d) t} + A_2 e^{(-\sigma - i\omega_d) t} = e^{-\sigma t} (C_1 \cos(\omega_n t) + C_2 \sin(\omega_n t))\]
 
-In the lattermost form, it's obvious that \(\sigma\) in fact has a use other than bookkeeping; it defines the exponential \textbf{envelope} by which the oscillation decays. An envelope is a function that outlines how a function grows/decays (it's the red line in the figure below).
+In the lattermost form, it's obvious that \(\sigma\) in fact \textit{does} have a use other than bookkeeping; it defines the exponential \textbf{envelope} by which the oscillation decays. An envelope is a function that outlines how a function grows/decays (it's the red dashed line in the figure below).
 
 \bicture{5_env}
 
@@ -384,7 +428,7 @@ Both poles are negative here! Our solution is:
 \vspace{-0.1in}
 \[q(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t}\]
 
-\bitle{7 - Pole Plots}
+\subsection{Pole Plots}
 
 I've been emphasizing poles a lot in the last few pages, but why? What's the importance of these seemingly arbitrary values? In fact, we can infer the dynamics of a system based on its poles.\footnote{This is the crux of a lot we do in ME351. If any of you remember what an eigenvalue is from Ma110, that'll come in handy in a bit.}
 
@@ -405,11 +449,49 @@ Here's a nice chart from FPE. Complex conjugates are omitted for simplicity.
     {\includegraphics[height=8cm]{7_fpe}}
 \end{center}
 
-\bitle{8 - Discriminants}
+\subsection{Leveraging the Discriminant}
 
-I'm going to stray off from Prof. Luchtenburg for a second because \textit{I} think this is useful. Your opinion might differ, if so, skip it.
+I'm going to stray off from Prof. Luchtenburg for a second because \textit{I} think this is useful.
 
-\textbf{WIP}
+\medskip
+
+Suppose we want to identify the dampedness of a system based on the equation of motion rather than solving for \(\zeta\). We can do exactly this using the \textbf{discriminant} of the characteristic equation of the system. Let's take a look at the canonical mass-spring system with a damper once again.
+
+\bicture{2_unf}
+
+The equation of motion, assuming free motion, is:
+
+\vspace{-0.1in}
+\[m\ddot{q} + b \dot{q} + k q = 0\]
+
+The characteristic equation is derived after plugging in \(q = e^{st}\).
+
+\vspace{-0.1in}
+\[ms^2 + bs + k = 0\]
+
+As stated in the damping section, there are three forms of the general solution if there is damping present: both poles are real and distinct (the system is overdamped), both poles are real and equal (the system is critically damped), or both poles are complex conjugates (the system is underdamped). You may recall from Algebra that the discriminant of a polynomial can reveal some properties of the roots without actually computing them. The discriminant of a quadratic is defined as follows:
+
+\vspace{-0.1in}
+\[\text{Disc}(ax^2 + bx + c) = b^2-4ac\]
+
+This is the argument of the square root in the quadratic formula. If this expression is positive, the solutions to the quadratic are real and distinct. If this expression is 0, then there is only one real solution to the quadratic. If this expression is negative, the solutions to the quadratic are complex. So physically, finding the discriminant of the characteristic equation of the mass-spring system will tell us how damped it is.
+
+\vspace{-0.1in}
+\[\text{Disc}(ms^2 + bs + k) = b^2-4mk\]
+
+\vspace{-0.35in}
+
+\begin{align*}
+    b^2 - 4mk > 0 \quad &\to \quad \text{overdamped} \\
+    b^2 - 4mk = 0 \quad &\to \quad \text{critically damped} \\
+    b^2 - 4mk < 0 \quad &\to \quad \text{underdamped} \\
+\end{align*}
+
+\vspace{-0.35in}
+
+And of course, if \(b=0\), then the system is undamped. 
+
+\section{WIP}
 
 test test
 

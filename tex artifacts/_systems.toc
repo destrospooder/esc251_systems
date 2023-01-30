@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Course Overview and Preface}{2}{section.1}%
+\contentsline {section}{\numberline {2}The First Order}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Gradients Make Stuff Flow (Very Hand-Wavey Edition)}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Solving that Damn Equation (and Time Constants)}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The RC Circuit and Final Generalization}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Let's Throw in an Input}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Our Second Order of Business}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Intermezzo - Complex Analysis}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Damping (You Guys are Going to See This Over and Over and Over)}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Pole Plots}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Leveraging the Discriminant}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}WIP}{11}{section.4}%
