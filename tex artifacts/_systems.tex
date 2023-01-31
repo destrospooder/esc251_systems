@@ -449,6 +449,8 @@ Here's a nice chart from FPE. Complex conjugates are omitted for simplicity.
     {\includegraphics[height=8cm]{7_fpe}}
 \end{center}
 
+
+
 \subsection{Leveraging the Discriminant}
 
 I'm going to stray off from Prof. Luchtenburg for a second because \textit{I} think this is useful.
@@ -561,7 +563,16 @@ By combining these three equations, we can use tools from our studies of mass-sp
 \[L \Delta \ddot{P} + R \Delta \dot{P} + \frac{1}{C} \Delta P = 0 \qquad \to \qquad \Delta \ddot{P} + \qty(\frac{R}{L}) \Delta \dot{P} + \qty(\frac{1}{LC}) \Delta P = 0\]
 \[m \ddot{q} + b \dot{q} + k q = 0 \qquad \to \qquad \ddot{q} + \qty(\frac{b}{m}) \dot{q} + \qty(\frac{k}{m}) q = 0\]
 
-We simply retrofit the definitions of the natural frequency \(\omega_n\) and damping ratio \(\zeta\) based on how we defined them for mass-spring systems to determine how the oscillations behave.
+We simply retrofit the definitions of the natural frequency \(\omega_n\) and damping ratio \(\zeta\) based on how we defined them for mass-spring systems to determine how the oscillations behave. Here's a quick example using the flow system analogy we've been using thus far:
+
+\vspace{-0.1in}
+\[\qquad \ddot{q} + 2\zeta\omega_n \dot{q} + \omega_n^2 q = 0 \quad \longleftrightarrow \quad  \Delta \ddot{P} + \qty(\frac{R}{L}) \Delta \dot{P} + \qty(\frac{1}{LC}) \Delta P = 0\]
+
+\vspace{-0.25in}
+\begin{align*}
+    2 \zeta \omega_n = \frac{R}{L} \qquad &\longrightarrow \qquad \zeta = \frac{R}{2L \omega_n} = \frac{R\sqrt{LC}}{2L} = \frac{R}{2} \sqrt{\frac{C}{L}}\\
+    \omega_n^2 = \frac{1}{LC} \qquad &\longrightarrow \qquad \omega_n = \frac{1}{\sqrt{LC}} = \frac{\sqrt{LC}}{LC}
+\end{align*}
 
 \end{flushleft}
 \end{onehalfspacing}
