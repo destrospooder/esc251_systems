@@ -9,4 +9,4 @@
 \contentsline {subsection}{\numberline {3.2}Damping (You Guys are Going to See This Over and Over and Over)}{9}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Pole Plots}{10}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Leveraging the Discriminant}{10}{subsection.3.4}%
-\contentsline {section}{\numberline {4}WIP}{11}{section.4}%
+\contentsline {subsection}{\numberline {3.5}The Tank, Revisited (Inertia)}{11}{subsection.3.5}%

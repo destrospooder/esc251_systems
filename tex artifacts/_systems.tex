@@ -491,9 +491,77 @@ This is the argument of the square root in the quadratic formula. If this expres
 
 And of course, if \(b=0\), then the system is undamped. 
 
-\section{WIP}
+\subsection{The Tank, Revisited (Inertia)}
 
-test test
+Let's revisit the tank from our study of first order systems. However, we'll make one small change: the outflow pipe now has a defined length of \(L_p\). 
+
+\bicture{6_inert}
+
+Let's model the same way we've been doing thus far. First, a conservation law:
+
+\vspace{-0.1in}
+\[\dot{\Volume} = -Q\]
+
+Next, ``Ohm's law'':
+
+\vspace{-0.1in}
+\[Q = \frac{\Delta P}{R} = \frac{P - P_\text{atm}}{R}\]
+
+If we isolate a piece of the pipe (with length \(L_p\)) as shown below, we can demystify this system a bit.
+
+\bicture{6_pipe}
+
+Assuming the cross-sectional area of the pipe \(A_p\) is constant, the pressure force \(F_p = A_p \Delta P\) accelerates the fluid between the two ends of this pipe. Additionally, there is friction \(F_f = -QRA_p\) on the liquid caused by the resistance of the pipe. By leveraging Newton's second law of motion, we now have a relationship between the pressure difference \(\Delta P\) and the velocity of the water \(v\).
+
+\vspace{-0.1in}
+\[m \frac{dv}{dt} = F_p + F_f = A_p \Delta P - Q R A_p\]
+
+The mass \(m\) of the fluid between the two ends of this pipe is equal to the product of the density of the fluid \(\rho\) and the volume between the two ends \(\Volume_p\). (Notably, the volume \(\Volume_p = A_p L_p\).)
+
+\vspace{-0.1in}
+\[\rho \, \Volume_p \, \frac{dv}{dt} = \rho A_p L_p \, \frac{dv}{dt} = A_p \Delta P - RQ A_p\]
+
+Because the product of the cross-sectional area \(A_p\) and the fluid velocity \(v\) is equal to the volumetric flow rate \(Q\), we can rewrite this equation as follows:
+
+\vspace{-0.1in}
+\[\frac{\rho L_p}{A_p} \, \frac{dQ}{dt} = \Delta P - RQ\]
+
+Ok, we can shed some light on what we're doing now. We define \textbf{inductance} (also referred to as \textbf{liquid-flow inertance} or \textbf{inertia}) as a term that describes the change in potential required for a unit rate of fluid flow. Inductance is the tendency of the fluid to move; it's created by the inertia of water flowing through the pipe. The mathematical definition of inductance is as follows:
+
+\vspace{-0.1in}
+\[L = \frac{\rho L_p}{A_p}\]
+
+Note that this definition of inductance is only valid for flow systems, but analogous concepts occur in other fields (like inductors from circuit analysis)! Fluid components that have an inductance are analogous to these inductors, or mechanical components with inertia. 
+
+\medskip
+
+Let's wrap up this example. When we plug in the definition of \(L\) into our equation, a simple first order system rears its head.\footnote{The analog of this system in circuit analysis is called the RL circuit, which is often used as a passive filter.}
+
+\vspace{-0.1in}
+\[L \, \frac{dQ}{dt} + RQ = \Delta P\]
+
+Let's throw it into canonical form so we can see its time constant.
+
+\vspace{-0.1in}
+\[\qty(\frac{L}{R}) \dot{Q} + Q = \frac{\Delta P}{R} \qquad \qquad \tau = \frac{L}{R}\]
+
+To summarize, we've added a new tool to our arsenal: conservation of momentum (or Newton's second law). 
+
+\vspace{-0.25in}
+\begin{align*}
+    \Delta P &= L \dot{Q} + RQ \\
+    \dot{\Volume} &= -Q\\
+    C \Delta P &= \Volume
+\end{align*}
+\vspace{-0.25in}
+
+By combining these three equations, we can use tools from our studies of mass-spring systems to analyze\dots well \dots any second order system.
+
+\vspace{-0.1in}
+\[L \Delta \ddot{P} + R \Delta \dot{P} + \frac{1}{C} \Delta P = 0 \qquad \to \qquad \Delta \ddot{P} + \qty(\frac{R}{L}) \Delta \dot{P} + \qty(\frac{1}{LC}) \Delta P = 0\]
+\[m \ddot{q} + b \dot{q} + k q = 0 \qquad \to \qquad \ddot{q} + \qty(\frac{b}{m}) \dot{q} + \qty(\frac{k}{m}) q = 0\]
+
+We simply retrofit the definitions of the natural frequency \(\omega_n\) and damping ratio \(\zeta\) based on how we defined them for mass-spring systems to determine how the oscillations behave.
 
 \end{flushleft}
 \end{onehalfspacing}
