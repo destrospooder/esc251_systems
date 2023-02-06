@@ -1,12 +1,19 @@
 \contentsline {section}{\numberline {1}Course Overview and Preface}{2}{section.1}%
-\contentsline {section}{\numberline {2}The First Order}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Gradients Make Stuff Flow (Very Hand-Wavey Edition)}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Solving that Damn Equation (and Time Constants)}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {1.1}Why Model?}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}The First Order}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Gradients Make Stuff Flow (Very Hand-Wavey Edition)}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Solving that Damn Equation (and Time Constants)}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}The RC Circuit and Final Generalization}{5}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Let's Throw in an Input}{6}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Our Second Order of Business}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Intermezzo - Complex Analysis}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Damping (You Guys are Going to See This Over and Over and Over)}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Pole Plots}{10}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Leveraging the Discriminant}{10}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}The Tank, Revisited (Inertia)}{11}{subsection.3.5}%
+\contentsline {section}{\numberline {3}Our Second Order of Business}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Intermezzo - Complex Analysis}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Damping (You Guys are Going to See This Over and Over and Over)}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Pole Plots}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Leveraging the Discriminant}{12}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}The Tank, Revisited (Inertia)}{13}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Cool Math Games}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Linearity and Time Invariance}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Yay! More Linear Differential Equation Theory}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}The State-Space Representation}{17}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}MUC (and Added Complexity)}{17}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}The Laplace Transform}{17}{subsection.4.5}%

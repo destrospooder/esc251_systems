@@ -81,6 +81,12 @@ Most figures here are taken from Prof. Luchtenburg's Class Notebook. When I take
 
 I have this lousy habit of writing in the fourth person and cursing in my writing. Apologies in advance.
 
+\subsection{Why Model?}
+
+Good question.
+
+\pagebreak
+
 \section{The First Order}
 
 Let's start by throwing out some systems and testing familiarity with first-order systems and simplified models.
@@ -275,6 +281,8 @@ For this system, at \(t=\tau\), the system response will have accumulated 63\% o
 \medskip
 
 The step input is just one of the test inputs we usually use; we'll look at a few more as the course progresses (such as sinusoidal waves, delta functions, etc.).
+
+\pagebreak
 
 \section{Our Second Order of Business}
 
@@ -573,6 +581,81 @@ We simply retrofit the definitions of the natural frequency \(\omega_n\) and dam
     2 \zeta \omega_n = \frac{R}{L} \qquad &\longrightarrow \qquad \zeta = \frac{R}{2L \omega_n} = \frac{R\sqrt{LC}}{2L} = \frac{R}{2} \sqrt{\frac{C}{L}}\\
     \omega_n^2 = \frac{1}{LC} \qquad &\longrightarrow \qquad \omega_n = \frac{1}{\sqrt{LC}} = \frac{\sqrt{LC}}{LC}
 \end{align*}
+
+\pagebreak
+
+\section{Cool Math Games}
+
+This chapter's going to be a smorgasbord of mathematical concepts I think are foundational to understanding this course from a theoretical perspective. A decent chunk of it will be review from Ma240, but it doesn't hurt to take a second look at these things (they keep coming back over and over).
+
+\medskip
+
+What I'll try to do, instead of rehashing what you got out of Ma240, is reframe these concepts in a way that's more applicable to this course (and ME351).
+
+\subsection{Linearity and Time Invariance}
+
+Most of the mathematical models we end up creating are horribly limited, because the world is inherently unpredictable. In this class, we try our best to make do with \textbf{linear time invariant (LTI)} systems. 
+
+\medskip
+
+An LTI system is a mathematical model often used in control theory to describe the behavior of physical systems. It is characterized by two properties: linearity and time invariance. I'll describe these separately in the context of differential equations. A differential equation of the form:
+
+\vspace{-0.1in}
+\[a_n y^{(n)} (t) + a_{n-1} y^{(n-1)} + \dots + a_1 \dot{y}(t) + a_0 y(t) = f(t)\]
+
+where \(y^{(i)}\) is the \(i\)th derivative of \(y(t)\), is called \textbf{linear}. (The relationship between \(y(t)\) and \(t\) is a linear mapping.) If \({a_i}_0^n\), also called coefficients, are constants, the equation is also characterized as a \textbf{constant coefficient} differential equation. Physically, constant coefficients imply that the system behavior does not depend on time. 
+
+\medskip
+
+We can establish an equivalence between linear constant coefficient equations and linear time invariant systems. Time invariance is the principle that if we chug an input \(t_0\) into a system that outputs \(y(t_0)\), the input \(t_0 + t_1\) will result in an output of \(y(t_0 + t_1)\). 
+
+
+Let's take a look at a few examples to make this more clear:
+
+\vspace{-0.1in}
+\[\dot{y} + \sin(t) y = 0\]
+
+This system is not LTI, because the coefficient of \(y\) is not constant. (More explicitly, it's a function of \(t\), so as \(t \to \infty\), the behavior is affected.)
+
+\vspace{-0.1in}
+\[2 \dot{y} + 3 y = 0\]
+
+This system \textit{is} LTI, because the coefficients of each derivative of \(y\) are constant.
+
+\vspace{-0.1in}
+\[\dot{y} + \ln(y) = 0\]
+
+This system isn't even linear, for obvious reasons.
+
+\medskip
+
+I'm skipping a lot of nuance here, and Prof. Mintchev would chop my head off if I showed him these lousy definitions. Nevertheless, we're engineers and not mathematicians.\footnote{In all seriousness, taking Ma326 was really cool, and I highly recommend it if you're interested in having the mathematical foundation necessary to learn more about dynamical systems.}
+
+\subsection{Yay! More Linear Differential Equation Theory}
+
+We've brushed upon how to solve first and second order linear differential equations that are \textbf{homogeneous}, or when the input \(f(t) = 0\).\footnote{If you don't remember, it's by plugging in a guess solution \(e^{st}\).} The generalization to \(n\)th order linear differential equations is pretty self explanatory.
+
+\medskip
+
+Here're a few tenets that we should keep in mind.
+
+\begin{itemize}[noitemsep,topsep=0.5pt]
+    \item yeah this is a tomorrow problem
+\end{itemize}
+
+\subsection{The State-Space Representation}
+
+hehe matrix go brr
+
+\subsection{MUC (and Added Complexity)}
+
+muckkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+
+\subsection{The Laplace Transform}
+
+ignore this i just wanna remember this when i start writing this section
+
+The Laplace transform of the LTI derivative operator \(\dot{x}\) is just \(sX(s)\).
 
 \end{flushleft}
 \end{onehalfspacing}
