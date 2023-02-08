@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage[papersize={8.5in,11in}, margin=0.4in, bottom = 1.3in, headsep=.3in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
@@ -14,16 +14,12 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{tikz}
-\usepackage{titlesec}
 
 \hypersetup{
     colorlinks=true, %set true if you want colored links
     linktoc=all,     %set to all if you want both sections and subsections linked
     linkcolor=blue,  %choose some color if you want links to stand out
 }
-
-\titleformat{\section}
-  {\large\bfseries}{\thesection}{1em}{}
 
 \usetikzlibrary{positioning}
 
@@ -47,21 +43,21 @@
 \end{center}}
 
 \begin{document}
-\begin{onehalfspacing}
-
-\begin{flushleft}
 
 \thispagestyle{empty}
-\LARGE{System Dynamics - Spring 2023 Notes} \\
-\medskip
-\large{Benjamin Aziel}
-\normalsize
+\title{\textbf{System Dynamics}}
+\date{Spring 2023}
+\author{Benjamin Aziel\\ The Cooper Union}
+\maketitle
 
+
+
+\thispagestyle{empty}
+\begin{onehalfspacing}
 \tableofcontents
 
-\pagebreak
-
-\section{Course Overview and Preface}
+\begin{flushleft}
+\chapter{Course Overview and Preface}
 
 The course is called Systems Engineering in the course catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
 
@@ -75,19 +71,19 @@ Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Noteboo
 
 \medskip
 
-Most figures here are taken from Prof. Luchtenburg's Class Notebook. When I take figures from another source, I will mention it there.
+Most figures here are taken from Prof. Luchtenburg's Class Notebook. When I take figures from another source, I will mention it there. This document is a living document, which means I'll continue editing it as I see fit.
 
 \medskip
 
 I have this lousy habit of writing in the fourth person and cursing in my writing. Apologies in advance.
 
-\subsection{Why Model?}
+\section{Why Model?}
 
 Good question.
 
 \pagebreak
 
-\section{The First Order}
+\chapter{The First Order}
 
 Let's start by throwing out some systems and testing familiarity with first-order systems and simplified models.
 \begin{itemize}[noitemsep,topsep=0.5pt]
@@ -96,7 +92,7 @@ Let's start by throwing out some systems and testing familiarity with first-orde
     \item Discharge of an RC circuit
 \end{itemize}
 
-\subsection{Gradients Make Stuff Flow (Very Hand-Wavey Edition)}
+\section{Gradients Make Stuff Flow (Very Hand-Wavey Edition)}
 
 \bicture{1_sys1}
 
@@ -175,7 +171,7 @@ Using this and the conservation equation, we construct:
 
 Again. Familiar. Very familiar. Maybe there's some unifying theory in the background here.
 
-\subsection{Solving that Damn Equation (and Time Constants)}
+\section{Solving that Damn Equation (and Time Constants)}
 
 We'll generalize that equation to what we call its \textbf{canonical form} \(\tau \dot{y} + y = 0\), a first order differential equation. Let's throw in an initial condition \(y(0)=y_0\) just so we don't have any undetermined constants at the end.
 
@@ -200,7 +196,7 @@ So what happens when we set \(t=\tau\)? Let's plug it in and find out.
 
 So the time constant is the time at which the system response has decayed to \(y_0 e^{-1}\), or approximately 37\% of its initial value. We can also reframe this definition as, ``the time constant is the time at which the system response has lost approximately 63\% of its initial value''. There is a different definition of the time constant for increasing systems that we will explore in the next section.
 
-\subsection{The RC Circuit and Final Generalization}
+\section{The RC Circuit and Final Generalization}
 
 Say we have an RC circuit with a full capacitor. 
 
@@ -245,7 +241,7 @@ Also conservation. That's a biggie.
 
 We've only discussed scenarios where there isn't anything flowing in thus far. In these cases, to solve nonhomogeneous differential equations, we'll have to use more specialized methods from Ma240 instead of guessing and praying, like the Laplace transform or the method of undetermined coefficients (or as I affectionately call it, MUC).
 
-\subsection{Let's Throw in an Input}
+\section{Let's Throw in an Input}
 
 A more simple form of the governing equation for one of these first order systems is:
 
@@ -284,7 +280,7 @@ The step input is just one of the test inputs we usually use; we'll look at a fe
 
 \pagebreak
 
-\section{Our Second Order of Business}
+\chapter{Our Second Order of Business}
 
 First order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote{Prove it!}
 
@@ -342,7 +338,7 @@ And the poles of this equation are:
 
 I just realized this is my second time having this lecture today, so I'm just going to copy-paste my ME301 notes here.
 
-\subsection{Intermezzo - Complex Analysis}
+\section{Intermezzo - Complex Analysis}
 
 Complex analysis is the study of functions of a complex variable \(z\), where \(z\) has a real component \(a\) and an imaginary component \(b\). Complex numbers show up all the time in this course, whenever anything oscillates, really (like mass-spring systems and pendula).
 
@@ -371,7 +367,7 @@ A lot of the nuance of complex numbers is best understood by analyzing this \tex
 \vspace{-0.1in}
 \[z = a+ib = r\cos{\theta} + ir \sin{\theta} = r (\cos{\theta} + i \sin{\theta}) = re^{i\theta}\]
 
-\subsection{Damping (You Guys are Going to See This Over and Over and Over)}
+\section{Damping (You Guys are Going to See This Over and Over and Over)}
 
 When \(\zeta = 0\) (or the system is \textbf{undamped}), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
 \medskip
@@ -436,7 +432,7 @@ Both poles are negative here! Our solution is:
 \vspace{-0.1in}
 \[q(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t}\]
 
-\subsection{Pole Plots}
+\section{Pole Plots}
 
 I've been emphasizing poles a lot in the last few pages, but why? What's the importance of these seemingly arbitrary values? In fact, we can infer the dynamics of a system based on its poles.\footnote{This is the crux of a lot we do in ME351. If any of you remember what an eigenvalue is from Ma110, that'll come in handy in a bit.}
 
@@ -459,7 +455,7 @@ Here's a nice chart from FPE. Complex conjugates are omitted for simplicity.
 
 
 
-\subsection{Leveraging the Discriminant}
+\section{Leveraging the Discriminant}
 
 I'm going to stray off from Prof. Luchtenburg for a second because \textit{I} think this is useful.
 
@@ -501,7 +497,7 @@ This is the argument of the square root in the quadratic formula. If this expres
 
 And of course, if \(b=0\), then the system is undamped. 
 
-\subsection{The Tank, Revisited (Inertia)}
+\section{The Tank, Revisited (Inertia)}
 
 Let's revisit the tank from our study of first order systems. However, we'll make one small change: the outflow pipe now has a defined length of \(L_p\). 
 
@@ -584,7 +580,7 @@ We simply retrofit the definitions of the natural frequency \(\omega_n\) and dam
 
 \pagebreak
 
-\section{Cool Math Games}
+\chapter{Cool Math Games}
 
 This chapter's going to be a smorgasbord of mathematical concepts I think are foundational to understanding this course from a theoretical perspective. A decent chunk of it will be review from Ma240, but it doesn't hurt to take a second look at these things (they keep coming back over and over).
 
@@ -592,7 +588,7 @@ This chapter's going to be a smorgasbord of mathematical concepts I think are fo
 
 What I'll try to do, instead of rehashing what you got out of Ma240, is reframe these concepts in a way that's more applicable to this course (and ME351).
 
-\subsection{Linearity and Time Invariance}
+\section{Linearity and Time Invariance}
 
 Most of the mathematical models we end up creating are horribly limited, because the world is inherently unpredictable. In this class, we try our best to make do with \textbf{linear time invariant (LTI)} systems. 
 
@@ -631,7 +627,7 @@ This system isn't even linear, for obvious reasons.
 
 I'm skipping a lot of nuance here, and Prof. Mintchev would chop my head off if I showed him these lousy definitions. Nevertheless, we're engineers and not mathematicians.\footnote{In all seriousness, taking Ma326 was really cool, and I highly recommend it if you're interested in having the mathematical foundation necessary to learn more about dynamical systems.}
 
-\subsection{Yay! More Linear Differential Equation Theory}
+\section{Yay! More Linear Differential Equation Theory}
 
 We've brushed upon how to solve first and second order linear differential equations that are \textbf{homogeneous}, or when the input \(f(t) = 0\).\footnote{If you don't remember, it's by plugging in a guess solution \(e^{st}\).} The generalization to \(n\)th order linear differential equations is pretty self explanatory.
 
@@ -643,19 +639,46 @@ Here're a few tenets that we should keep in mind.
     \item yeah this is a tomorrow problem
 \end{itemize}
 
-\subsection{The State-Space Representation}
-
-hehe matrix go brr
-
-\subsection{MUC (and Added Complexity)}
+\section{MUC (and Added Complexity)}
 
 muckkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
-\subsection{The Laplace Transform}
+\section{The State-Space Approach}
+
+When we begin to analyze more complicated systems, it becomes less and less feasible to solve them analytically. As a result, we resort to setting up a system of differential equations rather than concatenating them into one as we've done in past chapters.
+
+\medskip
+
+The state-space representation of a system describes the system's behavior over time in terms of a set of variables called \textbf{states}. \footnote{The state space is Euclidean space}The state variables represent the current conditions of the system, and their evolution over time is described by a set of first order differential equations called \textbf{state equations}.
+
+\medskip
+
+The state-space representation is a very powerful tool for modeling and analyzing physical systems, providing valuable insights into their behavior and enabling the development of control algorithms covered in ME351.
+
+\medskip
+
+An important thing to note is that the state-space representation of a system is not unique. In fact, an infinite number of representations exist for a physical system.
+
+\medskip
+
+
+When constructing a representation, it is advantageous to represent the system in a minimal form without meaningless states.
+
+\section{The Laplace Transform}
 
 ignore this i just wanna remember this when i start writing this section
 
 The Laplace transform of the LTI derivative operator \(\dot{x}\) is just \(sX(s)\).
+
+
+
+For a system with several variables, 
+
+For an \(n\)th order system, we write \(n\) first-order differential equations in terms of the states.
+
+do the pendulum example here, including the derivation of the EoM
+
+maybe a footnote about how you can approximate \(g\) with a quick pendulum test
 
 \end{flushleft}
 \end{onehalfspacing}
