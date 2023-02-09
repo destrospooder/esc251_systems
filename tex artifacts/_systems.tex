@@ -57,7 +57,9 @@
 \tableofcontents
 
 \begin{flushleft}
-\chapter{Course Overview and Preface}
+\chapter{Course Overview and Motivation}
+
+\section*{Preface}
 
 The course is called Systems Engineering in the course catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
 
@@ -85,6 +87,8 @@ Good question.
 
 \chapter{The First Order}
 
+\section*{Preface}
+
 Let's start by throwing out some systems and testing familiarity with first-order systems and simplified models.
 \begin{itemize}[noitemsep,topsep=0.5pt]
     \item Emptying a water tank
@@ -107,6 +111,7 @@ Let's start with a \textbf{conservation law}. We know there's a volume \(\Volume
 
 We'll take the time derivative of that equation to get some more familiar variables. (You might recognize the math here from related rates in Ma111.)
 
+\vspace{-0.1in}
 \[\frac{d}{dt} \qty[\Delta \Volume = A \Delta h] = -Q_\text{out}\]
 
 That's not very useful yet. Let's leverage some prior circuits knowledge here...charge moves because of a \textbf{voltage difference} \(\Delta V\), and comparably, fluid moves because of a \textbf{pressure difference}. Ohm's law! We'll come back to that, but the main takeaway here is that the outflow \(Q_\text{out}\) is related to the difference between the pressure inside the tank \(P\) and the atmospheric pressure \(P_\infty\).
@@ -115,6 +120,7 @@ That's not very useful yet. Let's leverage some prior circuits knowledge here...
 
 That circuits analogy comes in handy really often, because it turns out Ohm's law translates directly into fluid flow. 
 
+\vspace{-0.1in}
 \[\Delta V = V - V_0 = IR\]
 \[\Delta P = P-P_\infty = Q_\text{out} R\]
 
@@ -128,11 +134,13 @@ We'll generalize a bit soon, but for now I understand if you don't get it. It's 
 
 Let's leverage some hydrostatics now. The tank is open to the atmosphere at the top, so we can actually derive an expression for \(P\), the pressure at the base of the tank. We'll also define \(\rho\), the density of the fluid, and \(C\), or capacitance, as \(\frac{A}{\rho g}\), because it ends up being useful in the circuit analogy.\footnote{You'll see this technique leveraged again in ME342.}
 
+\vspace{-0.1in}
 \[\Delta P = \rho g \Delta h = \rho g \frac{\Delta \Volume}{A} = \frac{1}{C} \Delta \Volume\]
 \[C = \frac{A}{\rho g}\]
 
 OK, I think we're all set. I've been pretty lax with the ``delta's", but it should still be readable. Let me know if things need clarification.
 
+\vspace{-0.1in}
 \[\dot{\Volume} = -Q_\text{out}\]
 \[C \dot{\Delta P} = - \frac{\Delta P}{R}\]
 \[\boxed{RC \dot{\Delta P} + {\Delta P} = 0}\]
@@ -278,9 +286,9 @@ For this system, at \(t=\tau\), the system response will have accumulated 63\% o
 
 The step input is just one of the test inputs we usually use; we'll look at a few more as the course progresses (such as sinusoidal waves, delta functions, etc.).
 
-\pagebreak
-
 \chapter{Our Second Order of Business}
+
+\section*{Preface}
 
 First order systems are honestly pretty boring. When we put in a step input, we just get a pure exponential. We won't be able to get more interesting behavior, like oscillation, because that's just mathematically impossible.\footnote{Prove it!}
 
@@ -582,6 +590,8 @@ We simply retrofit the definitions of the natural frequency \(\omega_n\) and dam
 
 \chapter{Cool Math Games}
 
+\section*{Preface}
+
 This chapter's going to be a smorgasbord of mathematical concepts I think are foundational to understanding this course from a theoretical perspective. A decent chunk of it will be review from Ma240, but it doesn't hurt to take a second look at these things (they keep coming back over and over).
 
 \medskip
@@ -649,7 +659,7 @@ When we begin to analyze more complicated systems, it becomes less and less feas
 
 \medskip
 
-The state-space representation of a system describes the system's behavior over time in terms of a set of variables called \textbf{states}. \footnote{The state space is Euclidean space}The state variables represent the current conditions of the system, and their evolution over time is described by a set of first order differential equations called \textbf{state equations}.
+The state-space representation of a system describes the system's behavior over time in terms of a set of variables called \textbf{states}.\footnote{The state space can be described as a Euclidean space where each state corresponds with an axis.} The state variables represent the current conditions of the system, and their evolution over time is described by a set of first order differential equations called \textbf{state equations}.
 
 \medskip
 
@@ -661,8 +671,98 @@ An important thing to note is that the state-space representation of a system is
 
 \medskip
 
+When constructing a representation, it is advantageous to represent the system in a minimal form without meaningless states. Usually, the number of necessary states to properly describe a physical system is equal to the order of the differential equation.
 
-When constructing a representation, it is advantageous to represent the system in a minimal form without meaningless states.
+\medskip
+
+In the most general case, a state-state representation can be represented as the following:
+
+\begin{equation*}
+    \left\{ \begin{array}{ll}
+        \underbar{\(\dot{x}\)} = \underbar{\(f\)}(\underbar{\(x\)}, \underbar{\(u\)}) \\
+        \underbar{\(y\)} = \underbar{\(h\)}(\underbar{\(x\)}, \underbar{\(u\)})
+    \end{array} \right.
+\end{equation*}
+
+Ah, by the way, underlined quantities are vectorial.
+
+\medskip
+
+This might be a bit daunting at first, but it's just a lot of fancy notation for a concept that's pretty simple. \(\underbar{\(x\)}\) is the state, \(\underbar{\(u\)}\) is an input, and \(\underbar{\(y\)}\) is an output. Let's drive this concept home with an example.
+
+\medskip
+
+Say we have a simple pendulum with length \(L\) and a point mass \(m\) at its end, as pictured below:
+
+\bicture{8_pend}
+
+For this problem, the mass of the rod (and any potential friction in the hinge) is ignored. The equation of motion of the pendulum can be derived by summing moments about the point of contact between the pendulum and the fixed surface.\footnote{Alternatively, you could sum forces in the parallel and perpendicular directions of motion to yield an equivalent result.} Let's call that point of contact \(O\) for future bookkeeping purposes.
+
+\vspace{-0.1in}
+\[\sum{M_O} = J_O \ddot{\theta}\]
+
+The moment arm for the weight \(mg\) is the horizontal displacement \(L \sin(\theta)\), and \(J_O = mL^2\) is the mass moment of inertia of the point mass \(m\) about point \(O\). Let's crunch some numbers.
+
+\vspace{-0.1in}
+\[-mgL \sin(\theta) = mL^2 \ddot{\theta}\]
+\[mL^2 \ddot{\theta} + mgL \sin(\theta) = 0\]
+\[\ddot{\theta} + \frac{g}{L} \sin(\theta) = 0\]
+
+Now let's try putting this in state-space form. We define states \(\theta\) (angle) and \(\omega = \dot{\theta}\) (angular velocity), and start constructing our state equations.
+
+\vspace{-0.1in}
+\[\underbar{\(x\)} = \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix} \qquad \qquad \underbar{\(\dot{x}\)} = \begin{bmatrix}
+        \dot{\theta} \\
+        \dot{\omega}  \end{bmatrix}\]
+\[\underbar{\(\dot{x}\)} = \underbar{\(f\)} (\underbar{\(x\)}, \underbar{\(u\)})\]
+\vspace{-0.1in}
+\[\dot{\underbar{\(x\)}} = \begin{bmatrix}
+    \dot{\theta} \\
+    \dot{\omega}  \end{bmatrix} = \begin{bmatrix}
+    \omega \\
+    -\frac{g}{L} \sin(\theta) 
+\end{bmatrix}\]
+
+We've turned a second order differential equation into two first order differential equations. Let's move onto the second part of the representation: defining the output \(y\). We're interested in the states' behavior over time, so our output is...just the state vector \underbar{\(x\)}.
+
+\[\underbar{\(y\)} = \underbar{\(h\)}(\underbar{\(x\)}, \underbar{\(u\)}) = \underbar{\(x\)} = \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix}\]
+
+These two components make up the state-space representation of this pendulum system. Putting it in this form makes it easier to numerically solve using tools like Python or MATLAB.
+
+\medskip
+
+A nonlinear solution can be unappealing, though perfectly valid. By using the small-angle approximation \(\sin(\theta) \sim \theta\), we can refine this representation further.
+
+\[\ddot{\theta} + \frac{g}{L} \sin(\theta) \sim \ddot{\theta} + \frac{g}{L} \theta = 0\]
+
+Our system is now an LTI system. Linearity is very nice, because we can use matrix multiplication to make this representation pretty.
+
+\vspace{-0.1in}
+\[\dot{\underbar{\(x\)}} = \begin{bmatrix}
+    \dot{\theta} \\
+    \dot{\omega}  \end{bmatrix} = \begin{bmatrix}
+    \omega \\
+    -\frac{g}{L} \theta
+\end{bmatrix} = \begin{bmatrix}
+    0 & 1\\
+    -\frac{g}{L} & 0
+\end{bmatrix} \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix}\]
+\[\underbar{\(y\)} = \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix} = \begin{bmatrix}
+        1 & 0\\
+        0 & 1
+    \end{bmatrix} \begin{bmatrix}
+        \theta \\
+        \omega  \end{bmatrix}\]
+
+WIP
 
 \section{The Laplace Transform}
 

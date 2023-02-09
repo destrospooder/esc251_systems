@@ -930,9 +930,9 @@ INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT _systems.toc
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT ./1_sys1.png
 INPUT 1_sys1.png
@@ -982,6 +982,10 @@ INPUT ./6_pipe.png
 INPUT 6_pipe.png
 INPUT ./6_pipe.png
 INPUT ./6_pipe.png
+INPUT ./8_pend.png
+INPUT 8_pend.png
+INPUT ./8_pend.png
+INPUT ./8_pend.png
 INPUT _systems.aux
 INPUT ./_systems.out
 INPUT ./_systems.out
