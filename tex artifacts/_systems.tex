@@ -596,25 +596,47 @@ This chapter's going to be a smorgasbord of mathematical concepts I think are fo
 
 \medskip
 
-What I'll try to do, instead of rehashing what you got out of Ma240, is reframe these concepts in a way that's more applicable to this course (and ME351).
-
-\section{Linearity and Time Invariance}
-
-Most of the mathematical models we end up creating are horribly limited, because the world is inherently unpredictable. In this class, we try our best to make do with \textbf{linear time invariant (LTI)} systems. 
+What I'll try to do, instead of rehashing what you got out of Ma240, is reframe these concepts in a way that's more applicable to this course (and ME351). But first, let's formalize a few more definitions that will come in handy later on.
 
 \medskip
 
-An LTI system is a mathematical model often used in control theory to describe the behavior of physical systems. It is characterized by two properties: linearity and time invariance. I'll describe these separately in the context of differential equations. A differential equation of the form:
+A \textbf{linear combination} of elements of a set \(x_1, x_2, \dots, x_n\), is given by:
+
+\vspace{-0.1in}
+\[a_1 x_1 + a_2 x_2 + \dots + a_n x_n \]
+
+where each \(a_i\) is a constant. In layman's terms, a linear combination of variables is the sum of scaled versions of those variables, where the scaling factor is a scalar.
+
+\medskip
+
+A set of variables are \textbf{linearly dependent} if one of the variables can be expressed as a linear combination of the others. More formally, a set of variables \(x_1, x_2, \dots, x_n\) is linearly dependent if there exist scalars \(a_1, a_2, \dots a_n\) (not all zero), such that:
+
+\vspace{-0.1in}
+\[a_1 x_1 + a_2 x_2 + \dots + a_n x_n = 0\]
+
+On the other hand, if no such scalars exist, the set of variables is said to be \textbf{linearly independent}. 
+
+\section{Linearity and Time-Invariance}
+
+A \textbf{linear time-invariant (LTI) system} is a mathematical model often used in control theory to describe the behavior of physical systems. It is characterized by two properties: linearity and time-invariance. I'll describe these separately in the context of differential equations. A differential equation of the form:
 
 \vspace{-0.1in}
 \[a_n y^{(n)} (t) + a_{n-1} y^{(n-1)} + \dots + a_1 \dot{y}(t) + a_0 y(t) = f(t)\]
 
-where \(y^{(i)}\) is the \(i\)th derivative of \(y(t)\), is called \textbf{linear}. (The relationship between \(y(t)\) and \(t\) is a linear mapping.) If \({a_i}_0^n\), also called coefficients, are constants, the equation is also characterized as a \textbf{constant coefficient} differential equation. Physically, constant coefficients imply that the system behavior does not depend on time. 
+where \(y^{(i)}\) is the \(i\)th derivative of \(y(t)\), is called \textbf{linear}. (The relationship between \(y(t)\) and \(t\) is a linear mapping.) A system is linear if and only if it satisfies two properties: superposition and homogeneity:
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Superposition} - if \(x_1 \to y_1\) and \(x_2 \to y_2\), then \(x_1 + x_2 \to y_1 + y_2\)
+    \item \textbf{Homogeneity} - if \(k\) is a scalar and \(x \to y\), then \(kx \to ky\)
+\end{itemize}
+
+If \({a_i}_0^n\), also called coefficients, are constants, the equation is also characterized as a \textbf{constant coefficient} differential equation. Physically, constant coefficients imply that the system behavior does not depend on time. 
 
 \medskip
 
-We can establish an equivalence between linear constant coefficient equations and linear time invariant systems. Time invariance is the principle that if we chug an input \(t_0\) into a system that outputs \(y(t_0)\), the input \(t_0 + t_1\) will result in an output of \(y(t_0 + t_1)\). 
+We can establish an equivalence between linear constant coefficient equations and linear time-invariant systems. Time-invariance is the principle that if we chug an input \(t_0\) into a system that outputs \(y(t_0)\), the input \(t_0 + t_1\) will result in an output of \(y(t_0 + t_1)\).\footnote{An equivalent definition in signal processing is that a system is time-invariant if it commutes with a ``delay''.}
 
+\medskip
 
 Let's take a look at a few examples to make this more clear:
 
@@ -635,7 +657,11 @@ This system isn't even linear, for obvious reasons.
 
 \medskip
 
-I'm skipping a lot of nuance here, and Prof. Mintchev would chop my head off if I showed him these lousy definitions. Nevertheless, we're engineers and not mathematicians.\footnote{In all seriousness, taking Ma326 was really cool, and I highly recommend it if you're interested in having the mathematical foundation necessary to learn more about dynamical systems.}
+Examples of LTI systems include first-order passive filters, second order systems such as springs and masses, and many other linear systems in control theory and signal processing.
+
+\medskip
+
+
 
 \section{Yay! More Linear Differential Equation Theory}
 
@@ -653,7 +679,15 @@ Here're a few tenets that we should keep in mind.
 
 muckkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
-\section{The State-Space Approach}
+\section{The Laplace Transform}
+
+ignore this i just wanna remember this when i start writing this section
+
+The Laplace transform of the LTI derivative operator \(\dot{x}\) is just \(sX(s)\).
+
+\chapter{The State-Space Approach}
+
+\section*{Preface}
 
 When we begin to analyze more complicated systems, it becomes less and less feasible to solve them analytically. As a result, we resort to setting up a system of differential equations rather than concatenating them into one as we've done in past chapters.
 
@@ -669,11 +703,7 @@ The state-space representation is a very powerful tool for modeling and analyzin
 
 An important thing to note is that the state-space representation of a system is not unique. In fact, an infinite number of representations exist for a physical system.
 
-\medskip
-
-When constructing a representation, it is advantageous to represent the system in a minimal form without meaningless states. Usually, the number of necessary states to properly describe a physical system is equal to the order of the differential equation.
-
-\medskip
+\section{General Formulation}
 
 In the most general case, a state-state representation can be represented as the following:
 
@@ -683,10 +713,6 @@ In the most general case, a state-state representation can be represented as the
         \underbar{\(y\)} = \underbar{\(h\)}(\underbar{\(x\)}, \underbar{\(u\)})
     \end{array} \right.
 \end{equation*}
-
-Ah, by the way, underlined quantities are vectorial.
-
-\medskip
 
 This might be a bit daunting at first, but it's just a lot of fancy notation for a concept that's pretty simple. \(\underbar{\(x\)}\) is the state, \(\underbar{\(u\)}\) is an input, and \(\underbar{\(y\)}\) is an output. Let's drive this concept home with an example.
 
@@ -708,7 +734,16 @@ The moment arm for the weight \(mg\) is the horizontal displacement \(L \sin(\th
 \[mL^2 \ddot{\theta} + mgL \sin(\theta) = 0\]
 \[\ddot{\theta} + \frac{g}{L} \sin(\theta) = 0\]
 
-Now let's try putting this in state-space form. We define states \(\theta\) (angle) and \(\omega = \dot{\theta}\) (angular velocity), and start constructing our state equations.
+Now let's try putting this in state-space form. First, we select the state vector, which should adhere to the following points:
+
+\begin{itemize}[noitemsep]
+    \item Pick state variables that include all the relevant information about the system you're trying to model.
+    \item The number of dimensions in the state vector should match the number of degrees of freedom of the system.
+    \item The state vector should be \textbf{minimal}, meaning it should contain only the information necessary to describe the system, and not any redundant information. (Usually, the minimum number required is equal to the order of the differential equation that represents the system.)
+    \item The components of the state vector must be linearly independent.
+\end{itemize}
+
+We define states \(\theta\) (angle) and \(\omega = \dot{\theta}\) (angular velocity), and start constructing our state equations.
 
 \vspace{-0.1in}
 \[\underbar{\(x\)} = \begin{bmatrix}
@@ -763,30 +798,115 @@ Our system is now an LTI system. Linearity is very nice, because we can use matr
         \omega  \end{bmatrix}\]
 
         
-Let's say the pendulum had an input \(u\), and the new equation of motion was:
+Let's say the pendulum had an input applied torque \(T\), and the new equation of motion was:
 
 \vspace{-0.1in}
-\[\ddot{\theta} + \frac{g}{L} \theta = \frac{u}{mL}\]
+\[\ddot{\theta} + \frac{g}{L} \theta = \frac{T}{mL^2}\]
 
+Our revised state-space representation would be:
 
+\vspace{-0.1in}
+\[\dot{\underbar{\(x\)}} = \begin{bmatrix}
+    \dot{\theta} \\
+    \dot{\omega}  \end{bmatrix} = \begin{bmatrix}
+    \omega \\
+    -\frac{g}{L} \theta + \frac{T}{mL^2}
+\end{bmatrix} = \begin{bmatrix}
+    0 & 1\\
+    -\frac{g}{L} & 0
+\end{bmatrix} \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix} + \begin{bmatrix}
+        0 \\
+        \frac{1}{mL^2}  \end{bmatrix} T = \begin{bmatrix}
+            0 & 1\\
+            -\frac{g}{L} & 0
+        \end{bmatrix} \underbar{\(x\)} + \begin{bmatrix}
+                0 \\
+                \frac{1}{mL^2}  \end{bmatrix} u\]
+\[\underbar{\(y\)} = \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix} = \begin{bmatrix}
+        1 & 0\\
+        0 & 1
+    \end{bmatrix} \begin{bmatrix}
+        \theta \\
+        \omega  \end{bmatrix} + \begin{bmatrix}
+            0 \\
+            0  \end{bmatrix} T = \begin{bmatrix}
+                1 & 0\\
+                0 & 1
+            \end{bmatrix} \underbar{\(x\)} + \begin{bmatrix}
+                    0 \\
+                    0  \end{bmatrix} u\]
 
+Using this example, we now extract the general form of the state-space representation of a linear system. A linear system is represented in state space by the following equations:
 
+\vspace{-0.1in}
+\[\underbar{\(\dot{x}\)} = \textbf{A} \underbar{\(x\)} + \textbf{B} \underbar{\(u\)}\]
 
-\section{The Laplace Transform}
+\vspace{-0.3in}
+\[\underbar{\(y\)} = \textbf{C} \underbar{\(x\)} + \textbf{D} \underbar{\(u\)}\]
 
-ignore this i just wanna remember this when i start writing this section
+for \(t \ge t_0\), \(\underbar{\(x\)}(t_0)\), where:
 
-The Laplace transform of the LTI derivative operator \(\dot{x}\) is just \(sX(s)\).
+\(\underbar{\(x\)}\) is the state vector, of size \(n \times 1\) \\
+\(\underbar{\(y\)}\) is the output vector, of size \(q \times 1\) \\
+\(\underbar{\(u\)}\) is the input vector, of size \(p \times 1\) \\
+\textbf{A} is the system matrix, of size \(n \times n\)  \\
+\textbf{B} is the input matrix, of size \(n \times p\) \\
+\textbf{C} is the output matrix, of size \(q \times n\) \\
+\textbf{D} is the feedforward matrix, of size \(q \times p\)
 
+\section{Another Mass? Seriously?}
 
+Let's try another example, this time a translational mechanical system. Block 1 of mass \(m\) is attached to a fixed wall by dashpot with damping coefficient \(b\). Block 2, also of mass \(m\), is attached to block 1 by a spring of spring constant \(k\). Gravity is turned off.
 
-For a system with several variables, 
+\bicture{8_spr}
 
-For an \(n\)th order system, we write \(n\) first-order differential equations in terms of the states.
+First, we write the equations of motion of the network. (Just draw a free body diagram around each mass and don't fuck up your signs.)
 
-do the pendulum example here, including the derivation of the EoM
+\vspace{-0.1in}
+\[m \ddot{q_1} + b \dot{q_1} + k q_1 - k q_2 = 0\]
+\[-kx_1 + m \ddot{q_2} + k q_2 = f(t)\]
 
-maybe a footnote about how you can approximate \(g\) with a quick pendulum test
+This is a system of two second order differential equations, so we'll pick four states. We select our \(q_1\), \(\dot{q_1}\), \(q_2\), and \(\dot{q_2}\) to be our state variables.
+
+\medskip
+
+Our first two state equations are easy: just define the derivatives. We get the other two by rearranging the equations of motion and isolating \(\ddot{q_1}\) and \(\ddot{q_2}\).
+
+\vspace{-0.1in}
+\[\dot{\underbar{\(x\)}} = \begin{bmatrix}
+    \dot{q_1} \\
+    \ddot{q_1} \\
+    \dot{q_2} \\ 
+    \ddot{q_2}
+  \end{bmatrix} = \begin{bmatrix}
+    0 & 1 & 0 & 0\\
+    -\frac{k}{m} & -\frac{b}{m} & \frac{k}{m} & 0 \\
+    0 & 0 & 0 & 1\\
+    \frac{k}{m} & 0 & -\frac{k}{m} & 0
+\end{bmatrix} \begin{bmatrix}
+    q_1 \\
+    \dot{q_1} \\
+    q_2 \\ 
+    \dot{q_2} \end{bmatrix} + \begin{bmatrix}
+        0 \\
+    0 \\
+    0 \\ 
+    \frac{1}{m} \end{bmatrix} f(t)\]
+
+Now, we didn't specify what output we wanted, but let's say we want to analyze the acceleration of the second mass, or \(\ddot{q_2}\). We'd do the following:
+
+\vspace{-0.1in}
+\[y = \begin{bmatrix} 0 & 0 & 0 & 1\end{bmatrix} \begin{bmatrix}
+    q_1 \\
+    \dot{q_1} \\
+    q_2 \\ 
+    \dot{q_2} \end{bmatrix} + \begin{bmatrix} 0 \end{bmatrix} f(t)\]
+
+which is equivalent to the expression \(y = \ddot{q_2}\). Even though it seems more complicated to put it in this form, it provides us with a \textbf{C} and \textbf{D} matrix, which is invaluable when analyzing systems computationally.
 
 \end{flushleft}
 \end{onehalfspacing}
