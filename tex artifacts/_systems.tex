@@ -30,6 +30,7 @@
 \fancyhead[L]{The Cooper Union \\ESC251 - System Dynamics\\Prof. Luchtenburg}
 \fancyhead[R]{Benjamin Aziel  \\Spring 2023\\}
 \setlength{\headheight}{23pt}
+\cfoot{\thepage}
 
 \newcommand{\Laplace}{\mathscr{L}}
 \newcommand{\UnitStep}{\mathscr{U}}
@@ -49,8 +50,6 @@
 \date{Spring 2023}
 \author{Benjamin Aziel\\ The Cooper Union}
 \maketitle
-
-
 
 \thispagestyle{empty}
 \begin{onehalfspacing}
@@ -588,7 +587,7 @@ We simply retrofit the definitions of the natural frequency \(\omega_n\) and dam
 
 \pagebreak
 
-\chapter{Cool Math Games}
+\chapter{An Engineering Student's Butchering of Ma326}
 
 \section*{Preface}
 
@@ -596,7 +595,7 @@ This chapter's going to be a smorgasbord of mathematical concepts I think are fo
 
 \medskip
 
-What I'll try to do, instead of rehashing what you got out of Ma240, is reframe these concepts in a way that's more applicable to this course (and ME351). But first, let's formalize a few more definitions that will come in handy later on.
+What I'll try to do, instead of rehashing what you got out of Ma240, is reframe these concepts in a way that's more applicable to this course (and ME351). I'll also formalize a bunch of concepts from Ma326 that are really important to know for this class (and later on). But first, let's formalize a few more definitions that will come in handy later on.
 
 \medskip
 
@@ -685,6 +684,20 @@ ignore this i just wanna remember this when i start writing this section
 
 The Laplace transform of the LTI derivative operator \(\dot{x}\) is just \(sX(s)\).
 
+\section{Matrix Stuff}
+
+cover simple matrix operations - elementwise addition, scalar multiplication, matmult
+
+cross product
+
+transposition
+
+inversion
+
+talk about positive definite
+
+maybe an eigenvalue review
+
 \chapter{The State-Space Approach}
 
 \section*{Preface}
@@ -743,7 +756,7 @@ Now let's try putting this in state-space form. First, we select the state vecto
     \item The components of the state vector must be linearly independent.
 \end{itemize}
 
-We define states \(\theta\) (angle) and \(\omega = \dot{\theta}\) (angular velocity), and start constructing our state equations.
+A good rule of thumb is that the state should correspond with the initial conditions provided. We define states \(\theta\) (angle) and \(\omega = \dot{\theta}\) (angular velocity), and start constructing our state equations.
 
 \vspace{-0.1in}
 \[\underbar{\(x\)} = \begin{bmatrix}
@@ -788,6 +801,21 @@ Our system is now an LTI system. Linearity is very nice, because we can use matr
 \end{bmatrix} \begin{bmatrix}
     \theta \\
     \omega  \end{bmatrix}\]
+
+Let's move onto the \textbf{output equation}, which is (in my opinion) less interesting than the state equation. What are we interested in analyzing here? Say we're interested in analyzing \(\theta\) - or more succinctly, \(y = \theta\).
+
+\vspace{-0.1in}
+\[\underbar{\(y\)} = \begin{bmatrix}
+    \theta \\
+    \omega  \end{bmatrix} = \begin{bmatrix}
+        1 & 0
+    \end{bmatrix} \begin{bmatrix}
+        \theta \\
+        \omega  \end{bmatrix}\]
+
+Or, more interestingly, say we want to track both states over time (\(\theta\) and \(\omega\)). Our output is just the state, so we set \(y=\underbar{\(x\)}\). In these cases, the ``coefficient'' matrix is the identity matrix \(I_n\) of size \(n\times n\), where \(n\) is the number of components in the state vector.
+
+\vspace{-0.1in}
 \[\underbar{\(y\)} = \begin{bmatrix}
     \theta \\
     \omega  \end{bmatrix} = \begin{bmatrix}
@@ -795,10 +823,11 @@ Our system is now an LTI system. Linearity is very nice, because we can use matr
         0 & 1
     \end{bmatrix} \begin{bmatrix}
         \theta \\
-        \omega  \end{bmatrix}\]
+        \omega  \end{bmatrix} = I_2 \begin{bmatrix}
+            \theta \\
+            \omega  \end{bmatrix}\]
 
-        
-Let's say the pendulum had an input applied torque \(T\), and the new equation of motion was:
+We'll move on using this output equation. Let's make this more complicated by saying the pendulum has an input applied torque \(T\), and the new equation of motion is:
 
 \vspace{-0.1in}
 \[\ddot{\theta} + \frac{g}{L} \theta = \frac{T}{mL^2}\]
@@ -907,6 +936,10 @@ Now, we didn't specify what output we wanted, but let's say we want to analyze t
     \dot{q_2} \end{bmatrix} + \begin{bmatrix} 0 \end{bmatrix} f(t)\]
 
 which is equivalent to the expression \(y = \ddot{q_2}\). Even though it seems more complicated to put it in this form, it provides us with a \textbf{C} and \textbf{D} matrix, which is invaluable when analyzing systems computationally.
+
+\medskip
+
+What makes this example more significant than the previous one is that there's now two different ``nodes'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra}
 
 \end{flushleft}
 \end{onehalfspacing}
