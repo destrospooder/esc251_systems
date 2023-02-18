@@ -982,12 +982,12 @@ INPUT ./6_pipe.png
 INPUT 6_pipe.png
 INPUT ./6_pipe.png
 INPUT ./6_pipe.png
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT ./8_pend.png
 INPUT 8_pend.png
 INPUT ./8_pend.png
 INPUT ./8_pend.png
-INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
-INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT ./8_spr.png
 INPUT 8_spr.png
 INPUT ./8_spr.png

@@ -591,7 +591,7 @@ We simply retrofit the definitions of the natural frequency \(\omega_n\) and dam
 
 \section*{Preface}
 
-This chapter's going to be a smorgasbord of mathematical concepts I think are foundational to understanding this course from a theoretical perspective. A decent chunk of it will be review from Ma240, but it doesn't hurt to take a second look at these things (they keep coming back over and over).
+This chapter's going to be a smorgasbord of mathematical concepts I think are foundational to understanding this course from a theoretical perspective. A decent chunk of it will be review from Ma110 and Ma240, but it doesn't hurt to take a second look at these things (they keep coming back over and over).
 
 \medskip
 
@@ -658,37 +658,123 @@ This system isn't even linear, for obvious reasons.
 
 Examples of LTI systems include first-order passive filters, second order systems such as springs and masses, and many other linear systems in control theory and signal processing.
 
-\medskip
+\section{Matrices, at Lightspeed}
 
-
-
-\section{Yay! More Linear Differential Equation Theory}
-
-We've brushed upon how to solve first and second order linear differential equations that are \textbf{homogeneous}, or when the input \(f(t) = 0\).\footnote{If you don't remember, it's by plugging in a guess solution \(e^{st}\).} The generalization to \(n\)th order linear differential equations is pretty self explanatory.
+I truly hope you know what a matrix is by now. If not, fasten your seatbelt.
 
 \medskip
 
-Here're a few tenets that we should keep in mind.
+A matrix is a rectangular array of numbers, of the form:
 
-\begin{itemize}[noitemsep,topsep=0.5pt]
-    \item yeah this is a tomorrow problem
+\vspace{-0.1in}
+\[\textbf{A} = \begin{bmatrix}
+    a_{11} & a_{12} & \dots & a_{1n}\\ a_{21} & a_{22} & \dots & a_{2n}\\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mn}
+\end{bmatrix}\]
+
+where \(a_{ij}\) is the entry at row \(i\) and column \(j\). We say a matrix is of size \(m \times n\), where \(m\) is the number of rows and \(n\) is the number of columns.
+
+\vspace{-0.1in}
+\[\underbrace{\begin{bmatrix}
+    1 & 2 \\ 3 & 4 \\ 5 & 6
+\end{bmatrix}
+}_{3\times 2}\]
+
+Matrices are pretty neat. We can add numbers in the matrix elementwise and scale it by a scalar factor as follows:
+
+\vspace{-0.1in}
+\[\begin{bmatrix}
+    a_1 & b_1 \\ c_1 & d_1
+\end{bmatrix} + \begin{bmatrix}
+    a_2 & b_2 \\ c_2 & d_2
+\end{bmatrix} = \begin{bmatrix}
+    a_1 + a_2 & b_1 + b_2 \\ c_1 + c_2 & d_1 + d_2
+\end{bmatrix}\]
+
+\[ k \begin{bmatrix}
+    a & b \\ c & d
+\end{bmatrix} = \begin{bmatrix}
+    ka & kb \\ kc & kd
+\end{bmatrix}\]
+
+The \textbf{zero matrix} \textbf{0} is an \(m\times n\) matrix with all entries 0. The zero matrix plays an important role in linear algebra, as it is the additive identity for matrices. This means that adding a zero matrix to any matrix does not change the matrix, much like adding zero to any number does not change its value.
+
+\medskip
+
+A \textbf{square matrix} is a matrix with the same number of rows and columns. Many concepts in linear algebra are designed with these in mind, such as determinants and eigenvalues.
+
+\medskip
+
+Next, we'll tackle the \textbf{Kronecker delta}, which is  is a useful and important symbol in mathematics, particularly in linear algebra and related fields. Its simple definition allows for the easy expression of many concepts and operations, making it a valuable tool for mathematicians and scientists. We define the Kronecker delta \(\delta_{ij}\) as follows:
+
+\vspace{-0.1in}
+\begin{equation*}
+    \delta_{ij} = \left\{ \begin{array}{ll}
+        1 \quad i=j\\
+        0 \quad i \neq j
+    \end{array} \right.
+\end{equation*}
+
+Following from this, the \textbf{identity matrix} \(\textbf{I}_n\) is defined as an \(n\times n\) square matrix where \((\textbf{I}_n)_{ij} = \delta_{ij}\), i.e.,
+
+\vspace{-0.1in}
+\[\textbf{I}_1 = 1, \; \textbf{I}_2 = \begin{bmatrix}
+    1 & 0 \\ 0 & 1
+\end{bmatrix}, \; \textbf{I}_3 = \begin{bmatrix}
+    1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+\end{bmatrix}, \; \dots\]
+
+The set of all matrices fixed at size \(m \times n\) with scalar entries forms something we call a vector space. There's a lot of nuance attached to that name; if you care about it, take Ma326. Here are a few properties for now. (Bolded quantities are matrices, \(a, b,\) and 1 are scalars.)
+
+\begin{itemize}[noitemsep]
+    \item Matrix addition is commutative, i.e., \textbf{X} + \textbf{Y} = \textbf{Y} + \textbf{X}
+    \item Matrix addition is associative, i.e., (\textbf{X} + \textbf{Y}) + \textbf{Z} = \textbf{X} + (\textbf{Y} + \textbf{Z})
+    \item Each matrix has an additive identity, i.e., \textbf{X} + \textbf{0} = \textbf{X}
+    \item Each matrix has an additive inverse, i.e., \textbf{X} + \textbf{Y} = \textbf{0}.
+    \item Each matrix has a scalar multiplicative identity, i.e., \(1 (\textbf{X})\) = \textbf{X}
+    \item \((ab)\textbf{X} = a(b\textbf{X})\)
+    \item \(a(\textbf{X} + \textbf{Y}) = a\textbf{X} + a\textbf{Y}\)
+    \item \((a+b)\textbf{X} = a\textbf{X} + b\textbf{X}\)
 \end{itemize}
 
-\section{MUC (and Added Complexity)}
+We can multiply two matrices of sizes \(m\times n\) and \(n\times p\), respectively, to produce another matrix of size \(m\times p\). The operation, dubbed \textbf{matrix multiplication}, should not be confused with the scalar multiplication used before. It's defined as follows:
 
-muckkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+\vspace{-0.1in}
+\[(\textbf{AB})_{ij} = \sum_{k=1}^n \textbf{A}_{ik} \textbf{B}_{kj}\]
 
-\section{The Laplace Transform}
+Finding the product of two matrices may look intimidating based off that formula, but it's actually not that difficult once you understand the basic steps. First, you need to make sure that the matrices are compatible for multiplication. To do this, we need to ensure that the number of columns in the first matrix is the same as the number of rows in the second matrix. If they're not the same, you can't multiply them.\footnote{This is a really great gut check when you're finishing up a long calculation. If that matrix multiplication at the end of the problem is impossible, something must be up.}
 
-ignore this i just wanna remember this when i start writing this section
+\medskip
 
-The Laplace transform of the LTI derivative operator \(\dot{x}\) is just \(sX(s)\).
+Once you've determined that the matrices are compatible, you can start multiplying. To find each element in the product matrix, you need to multiply the corresponding row in the first matrix by the corresponding column in the second matrix. Specifically, for each element in the product matrix, you will:
 
-\section{Matrix Stuff}
+\begin{itemize}[noitemsep]
+    \item Take the row of the first matrix that corresponds to that element.
+    \item Take the column of the second matrix that corresponds to that element.
+    \item Multiply each corresponding pair of elements in the row and column.
+    \item Add up all of the products you got in the last step.
+\end{itemize}
 
-cover simple matrix operations - elementwise addition, scalar multiplication, matmult
+Keep doing this for every element in the product matrix until you've filled in all the entries. Here's a brief example:
 
-cross product
+\[\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+    5 & 6
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 \cdot 1 + 2 \cdot 3 + 3 \cdot 5 & 1 \cdot 2 + 2 \cdot 4 + 3 \cdot 6 \\
+    4 \cdot 1 + 5 \cdot 3 + 6 \cdot 5 & 4 \cdot 2 + 5 \cdot 4 + 6 \cdot 6\end{bmatrix} = \begin{bmatrix} 22 & 28 \\ 49 & 64 \end{bmatrix}\]
+
+\medskip
+
+Matrix products show up everywhere. They're essential for fields like population modeling, network theory, signal processing, advanced dynamics, etc. Try to be as comfortable as possible with this operation before diving into the next chapter.
+
+\section{Transposition and Inversion}
 
 transposition
 
@@ -813,7 +899,7 @@ Let's move onto the \textbf{output equation}, which is (in my opinion) less inte
         \theta \\
         \omega  \end{bmatrix}\]
 
-Or, more interestingly, say we want to track both states over time (\(\theta\) and \(\omega\)). Our output is just the state, so we set \(y=\underbar{\(x\)}\). In these cases, the ``coefficient'' matrix is the identity matrix \(I_n\) of size \(n\times n\), where \(n\) is the number of components in the state vector.
+Or, more interestingly, say we want to track both states over time (\(\theta\) and \(\omega\)). Our output is just the state, so we set \(y=\underbar{\(x\)}\). In these cases, the ``coefficient'' matrix is the \(n\times n\) identity matrix \(\textbf{I}_n\), where \(n\) is the number of components in the state vector.
 
 \vspace{-0.1in}
 \[\underbar{\(y\)} = \begin{bmatrix}
@@ -823,7 +909,7 @@ Or, more interestingly, say we want to track both states over time (\(\theta\) a
         0 & 1
     \end{bmatrix} \begin{bmatrix}
         \theta \\
-        \omega  \end{bmatrix} = I_2 \begin{bmatrix}
+        \omega  \end{bmatrix} = \textbf{I}_2 \begin{bmatrix}
             \theta \\
             \omega  \end{bmatrix}\]
 
@@ -939,7 +1025,7 @@ which is equivalent to the expression \(y = \ddot{q_2}\). Even though it seems m
 
 \medskip
 
-What makes this example more significant than the previous one is that there's now two different ``nodes'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra}
+What makes this example more significant than the previous one is that there's now two different ``nodes'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.}
 
 \end{flushleft}
 \end{onehalfspacing}

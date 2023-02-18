@@ -13,10 +13,8 @@
 \contentsline {section}{\numberline {3.5}The Tank, Revisited (Inertia)}{13}{section.3.5}%
 \contentsline {chapter}{\numberline {4}An Engineering Student's Butchering of Ma326}{16}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Linearity and Time-Invariance}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Yay! More Linear Differential Equation Theory}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}MUC (and Added Complexity)}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}The Laplace Transform}{17}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Matrix Stuff}{18}{section.4.5}%
-\contentsline {chapter}{\numberline {5}The State-Space Approach}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General Formulation}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Another Mass? Seriously?}{22}{section.5.2}%
+\contentsline {section}{\numberline {4.2}Matrices, at Lightspeed}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Transposition and Inversion}{19}{section.4.3}%
+\contentsline {chapter}{\numberline {5}The State-Space Approach}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General Formulation}{20}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Another Mass? Seriously?}{23}{section.5.2}%
