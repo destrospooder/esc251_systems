@@ -60,19 +60,19 @@
 
 \section*{Preface}
 
-The course is called Systems Engineering in the course catalog, but Prof. Luchtenburg informally calls it System Dynamics. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
+The course is called Systems Engineering in the course catalog, but Prof. Luchtenburg calls it System Dynamics instead. It's a more apt name for what the course actually covers; if you look up Systems Engineering you'll find a completely different subject.
 
 \medskip
 
-The course text is Ogata's \textit{System Dynamics}, which is a pretty lousy book, I'd recommend reading the first few chapters of Nise or FPE instead. I can provide PDFs if you can't find them yourselves. Read the syllabus, it's pretty in depth.
+The course text is Ogata's \textit{System Dynamics}, which doesn't fit particularly well for the course. Most feedback control textbooks, like Nise, start with a few chapters covering dynamic modeling and response, but they tend not to be very in depth. I can provide PDFs if you can't find them yourselves. Read the syllabus, it's pretty in depth.
 
 \medskip
 
-Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Notebook and record his lectures. Your mileage may vary if you don't bother coming to class.
+Prof. Luchtenburg \textit{should} put his notes up in the MS Teams Class Notebook and record his lectures. Your mileage may vary if you don't bother coming to class, though; the audio quality in the recordings isn't that great and the notes can be less detailed than the lectures themselves.
 
 \medskip
 
-Most figures here are taken from Prof. Luchtenburg's Class Notebook. When I take figures from another source, I will mention it there. This document is a living document, which means I'll continue editing it as I see fit.
+Most figures here are taken from Prof. Luchtenburg's Class Notebook. When I take figures from another source, I will mention it inline. This document is a living document, which means I'll continue editing it as I see fit. I reserve the right to include material that may not be covered in the course, but better prepares you for concepts that may seem like they come out-of-the-blue otherwise.
 
 \medskip
 
@@ -80,9 +80,23 @@ I have this lousy habit of writing in the fourth person and cursing in my writin
 
 \section{Why Model?}
 
-Good question.
+To start off, let's define a \textbf{model}. A mathematical model of a system is a set of differential equations that allows us to predict how a system behaves under different conditions. By creating a model, we can use equations and principles to describe a system's present behavior, identify key parameters that affect the system, and make educated guesses as to how the system will behave in the future.
 
-\pagebreak
+\medskip
+
+You may have covered some rudimentary modeling in Ma111 or Ma240, where it was probably crammed in to satisfy those annoying kids that go ``wHEN ARe we ever gOINg to usE tHIS iN ReAl LIfE''. The methods we'll cover in this course will be more robust than simply going off a given formula.
+
+\medskip
+
+Something we'll exploit a lot in this course is the principle of \textbf{analogical models}, or generic representations of common phenomena. This is advantageous because it provides a convenient and consistent way to represent and analyze complex systems that involve different types of ``stuff". Say you're faced with a fluid flow system, and you haven't taken a fluid mechanics course yet. Using methods introduced in this course, we will be able to convert this system into something equivalent, yet more familiar, like a mass-spring system or a series circuit. Using these analogies allows us to apply the same concepts and mathematical tools to different types of systems, which can greatly simplify the analysis and design process.  
+
+\medskip
+
+To conclude, modeling is a powerful tool that allows us to understand, predict, and (as we'll see in ME351 next semester) \textbf{control} the behavior of physical systems, and it has many practical applications in engineering, physics, and other fields.
+
+\medskip
+
+Don't suck at it.
 
 \chapter{The First Order}
 

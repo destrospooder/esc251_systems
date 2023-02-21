@@ -1,20 +1,20 @@
 \contentsline {chapter}{\numberline {1}Course Overview and Motivation}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Why Model?}{2}{section.1.1}%
-\contentsline {chapter}{\numberline {2}The First Order}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Gradients Make Stuff Flow (Very Hand-Wavey Edition)}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Solving that Damn Equation (and Time Constants)}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}The RC Circuit and Final Generalization}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Let's Throw in an Input}{7}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Our Second Order of Business}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Intermezzo - Complex Analysis}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Damping (You Guys are Going to See This Over and Over and Over)}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Pole Plots}{11}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Leveraging the Discriminant}{12}{section.3.4}%
-\contentsline {section}{\numberline {3.5}The Tank, Revisited (Inertia)}{13}{section.3.5}%
-\contentsline {chapter}{\numberline {4}An Engineering Student's Butchering of Ma326}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Linearity and Time-Invariance}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Matrices, at Lightspeed}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Transposition and Inversion}{19}{section.4.3}%
-\contentsline {chapter}{\numberline {5}The State-Space Approach}{20}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General Formulation}{20}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Another Mass? Seriously?}{23}{section.5.2}%
+\contentsline {chapter}{\numberline {2}The First Order}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Gradients Make Stuff Flow (Very Hand-Wavey Edition)}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Solving that Damn Equation (and Time Constants)}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}The RC Circuit and Final Generalization}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Let's Throw in an Input}{8}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Our Second Order of Business}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Intermezzo - Complex Analysis}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Damping (You Guys are Going to See This Over and Over and Over)}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Pole Plots}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Leveraging the Discriminant}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}The Tank, Revisited (Inertia)}{14}{section.3.5}%
+\contentsline {chapter}{\numberline {4}An Engineering Student's Butchering of Ma326}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Linearity and Time-Invariance}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Matrices, at Lightspeed}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Transposition and Inversion}{20}{section.4.3}%
+\contentsline {chapter}{\numberline {5}The State-Space Approach}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General Formulation}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Another Mass? Seriously?}{24}{section.5.2}%
