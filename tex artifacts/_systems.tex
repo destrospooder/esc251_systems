@@ -109,7 +109,7 @@ Let's start by throwing out some systems and testing familiarity with first-orde
     \item Discharge of an RC circuit
 \end{itemize}
 
-\section{Gradients Make Stuff Flow (Very Hand-Wavey Edition)}
+\section{Gradients Make Stuff Flow}
 
 \bicture{1_sys1}
 
@@ -359,9 +359,9 @@ And the poles of this equation are:
 
 I just realized this is my second time having this lecture today, so I'm just going to copy-paste my ME301 notes here.
 
-\section{Intermezzo - Complex Analysis}
+\section{A Quick Dive into Complex Analysis}
 
-Complex analysis is the study of functions of a complex variable \(z\), where \(z\) has a real component \(a\) and an imaginary component \(b\). Complex numbers show up all the time in this course, whenever anything oscillates, really (like mass-spring systems and pendula).
+Complex analysis is the study of functions of a complex variable \(z\), where \(z\) has a real component \(a\) and an imaginary component \(b\). Complex numbers show up all the time in this course, whenever anything oscillates, really (like mass-spring systems or pendulums).
 
 \medskip
 
@@ -388,7 +388,7 @@ A lot of the nuance of complex numbers is best understood by analyzing this \tex
 \vspace{-0.1in}
 \[z = a+ib = r\cos{\theta} + ir \sin{\theta} = r (\cos{\theta} + i \sin{\theta}) = re^{i\theta}\]
 
-\section{Damping (You Guys are Going to See This Over and Over and Over)}
+\section{Damping!}
 
 When \(\zeta = 0\) (or the system is \textbf{undamped}), we have the poles \(s_{1, 2} = \pm i\omega_n^2\). This implies that our solution is a linear combination of sines and cosines, endlessly oscillating, forever and ever. (That's kind of depressing to be honest.)
 \medskip
@@ -474,8 +474,6 @@ Here's a nice chart from FPE. Complex conjugates are omitted for simplicity.
     {\includegraphics[height=8cm]{7_fpe}}
 \end{center}
 
-
-
 \section{Leveraging the Discriminant}
 
 I'm going to stray off from Prof. Luchtenburg for a second because \textit{I} think this is useful.
@@ -496,7 +494,7 @@ The characteristic equation is derived after plugging in \(q = e^{st}\).
 \vspace{-0.1in}
 \[ms^2 + bs + k = 0\]
 
-As stated in the damping section, there are three forms of the general solution if there is damping present: both poles are real and distinct (the system is overdamped), both poles are real and equal (the system is critically damped), or both poles are complex conjugates (the system is underdamped). You may recall from Algebra that the discriminant of a polynomial can reveal some properties of the roots without actually computing them. The discriminant of a quadratic is defined as follows:
+As stated in the section on damping, there are three forms of the general solution if there is damping present: both poles are real and distinct (the system is overdamped), both poles are real and equal (the system is critically damped), or both poles are complex conjugates (the system is underdamped). You may recall from Algebra that the discriminant of a polynomial can reveal some properties of the roots without actually computing them. The discriminant of a quadratic is defined as follows:
 
 \vspace{-0.1in}
 \[\text{Disc}(ax^2 + bx + c) = b^2-4ac\]
