@@ -2,9 +2,8 @@
 \contentsline {section}{\numberline {1.1}Why Model?}{2}{section.1.1}%
 \contentsline {chapter}{\numberline {2}The First Order}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Gradients Make Stuff Flow}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Solving that Damn Equation (and Time Constants)}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}The RC Circuit and Final Generalization}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Let's Throw in an Input}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.2}The RC Circuit and Final Generalization}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Let's Throw in an Input}{8}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Our Second Order of Business}{9}{chapter.3}%
 \contentsline {section}{\numberline {3.1}A Quick Dive into Complex Analysis}{10}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Damping!}{11}{section.3.2}%
