@@ -1014,6 +1014,15 @@ Let's try another example, this time a translational mechanical system. Block 1 
 
 First, we write the equations of motion of the network. (Just draw a free body diagram around each mass and don't fuck up your signs.)
 
+\medskip
+
+``\textit{You want a hint? Newton guy.}''
+
+\vspace{-0.1in}
+\begin{flushright}
+    -Prof. Luchtenburg
+\end{flushright}
+
 \vspace{-0.1in}
 \[m \ddot{q_1} + b \dot{q_1} + k q_1 - k q_2 = 0\]
 \[-kx_1 + m \ddot{q_2} + k q_2 = f(t)\]
@@ -1054,11 +1063,11 @@ Now, we didn't specify what output we wanted, but let's say we want to analyze t
     q_2 \\ 
     \dot{q_2} \end{bmatrix} + \begin{bmatrix} 0 \end{bmatrix} f(t)\]
 
-which is equivalent to the expression \(y = \ddot{q_2}\). Even though it seems more complicated to put it in this form, it provides us with a \textbf{C} and \textbf{D} matrix, which is invaluable when analyzing systems computationally.
+which is equivalent to the expression \(y = \dot{q_2}\). Even though it seems more complicated to put it in this form, it provides us with a \textbf{C} and \textbf{D} matrix, which is invaluable when analyzing systems computationally.
 
 \medskip
 
-What makes this example more significant than the previous one is that there's now two different ``nodes'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.}
+What makes this example more significant than the previous one is that there's now two different ``entities'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.} Rather than just analyzing multiple states (position, velocity) of a singular entity like we did with the pendulum, we're now taking a look at the position and velocity of TWO masses. That's kind of nifty, I think.
 
 \end{flushleft}
 \end{onehalfspacing}
