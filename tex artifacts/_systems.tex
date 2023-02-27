@@ -813,7 +813,22 @@ Again, trivially, the sum of two skew-symmetric matrices is symmetric, and a sca
 
 \medskip
 
-This factoid turns out to be crucial if we focus on the 3-space case, there are only three independent entries of a skew-symmetric matrix.
+This factoid turns out to be crucial if we focus on the 3-space case, there are only three independent entries of a skew-symmetric matrix. We can define a skew-symmetric operator for vectors in 3-space skew() as follows:\footnote{Yeah, you'll see awful notation everywhere for this thing. I'm going to use skew() because why not.}
+
+\vspace{-0.1in}
+\[\text{skew}(\underbar{\(x\)}) = \text{skew}(x_1, x_2, x_3) = \begin{bmatrix} 0 & -x_1 & x_2 \\ x_1 & 0 & -x_3 \\ -x_2 & x_3 & 0\end{bmatrix} \]
+
+This operator comes with a really cool property:
+
+\vspace{-0.1in}
+\[\text{skew}(\underbar{\(x\)})^\text{T} = -\text{skew}(\underbar{\(x\)})\]
+
+which comes in handy a lot in advanced dynamics. Additionally, we can make an alternative definition of the vector cross product.
+
+\vspace{-0.1in}
+\[\underbar{\(x\)} \times \underbar{\(y\)} = \text{skew}(\underbar{\(x\)}) \underbar{y}\]
+
+Prove it! It's kind of fun.
 
 \section{Eigen Eigen Eigen}
 
@@ -1027,7 +1042,7 @@ First, we write the equations of motion of the network. (Just draw a free body d
 \[m \ddot{q_1} + b \dot{q_1} + k q_1 - k q_2 = 0\]
 \[-kx_1 + m \ddot{q_2} + k q_2 = f(t)\]
 
-This is a system of two second order differential equations, so we'll pick four states. We select our \(q_1\), \(\dot{q_1}\), \(q_2\), and \(\dot{q_2}\) to be our state variables.
+This is a system of two second order differential equations, so we'll pick four states. We select our \(q_1\), \(\dot{q_1}\), \(q_2\), and \(\dot{q_2}\) to be our four state variables, because we're analyzing the kinematic behavior of two masses obeying Newton's second law (N2L is a second order differential equation, which requires two initial conditions, and since there's two masses to analyze we have four).
 
 \medskip
 

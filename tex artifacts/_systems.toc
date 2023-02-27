@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {4.1}Linearity and Time-Invariance}{17}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Matrices, at Lightspeed}{18}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Transposition and Symmetry}{20}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Eigen Eigen Eigen}{20}{section.4.4}%
-\contentsline {chapter}{\numberline {5}The State-Space Approach}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General Formulation}{21}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Another Mass? Seriously?}{24}{section.5.2}%
+\contentsline {section}{\numberline {4.4}Eigen Eigen Eigen}{21}{section.4.4}%
+\contentsline {chapter}{\numberline {5}The State-Space Approach}{22}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General Formulation}{22}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Another Mass? Seriously?}{25}{section.5.2}%

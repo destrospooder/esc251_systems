@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  22 FEB 2023 17:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  27 FEB 2023 14:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -804,13 +804,21 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [20]
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[21]
 Chapter 5.
-<8_pend.png, id=299, 224.33812pt x 164.11313pt>
+<8_pend.png, id=305, 224.33812pt x 164.11313pt>
 File: 8_pend.png Graphic file (type png)
 <use 8_pend.png>
-Package pdftex.def Info: 8_pend.png  used on input line 855.
+Package pdftex.def Info: 8_pend.png  used on input line 870.
 (pdftex.def)             Requested size: 155.57736pt x 113.81102pt.
-[21
+[22
 
 ]
 
@@ -820,7 +828,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[22 <./8_pend.png>]
+[23 <./8_pend.png>]
 
 Package fancyhdr Warning: \headheight is too small (23.0pt): 
 (fancyhdr)                Make it at least 34.54448pt, for example:
@@ -828,11 +836,11 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[23]
-<8_spr.png, id=317, 504.38437pt x 216.81pt>
+[24]
+<8_spr.png, id=324, 504.38437pt x 216.81pt>
 File: 8_spr.png Graphic file (type png)
 <use 8_spr.png>
-Package pdftex.def Info: 8_spr.png  used on input line 1013.
+Package pdftex.def Info: 8_spr.png  used on input line 1028.
 (pdftex.def)             Requested size: 264.76727pt x 113.81102pt.
 
 
@@ -842,23 +850,23 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[24 <./8_spr.png>] (./_systems.aux)
+[25 <./8_spr.png>] (./_systems.aux)
 Package rerunfilecheck Info: File `_systems.out' has not changed.
 (rerunfilecheck)             Checksum: C353AFCBCEF1DCF3AD11E682A2A25CEE;3615.
  ) 
 Here is how much of TeX's memory you used:
- 22158 strings out of 478353
- 404056 string characters out of 5852094
+ 22160 strings out of 478353
+ 404075 string characters out of 5852094
  698870 words of memory out of 5000000
  39825 multiletter control sequences out of 15000+600000
  414157 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,15n,91p,863b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on _systems.pdf (25 pages, 673377 bytes).
+Output written on _systems.pdf (26 pages, 675150 bytes).
 PDF statistics:
- 428 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 436 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
  238 words of extra memory for PDF output out of 10000 (max. 10000000)
 
