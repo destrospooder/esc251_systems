@@ -832,9 +832,9 @@ Prove it! It's kind of fun.
 
 \section{Eigen Eigen Eigen}
 
-\chapter{The State-Space Approach}
+\chapter{Modeling in Different Domains}
 
-\section*{Preface}
+\section*{Preface - Time Domain Modeling}
 
 When we begin to analyze more complicated systems, it becomes less and less feasible to solve them analytically. As a result, we resort to setting up a system of differential equations rather than concatenating them into one as we've done in past chapters.
 
@@ -850,7 +850,7 @@ The state-space representation is a very powerful tool for modeling and analyzin
 
 An important thing to note is that the state-space representation of a system is not unique. In fact, an infinite number of representations exist for a physical system.
 
-\section{General Formulation}
+\section{The State-Space Approach}
 
 In the most general case, a state-state representation can be represented as the following:
 
@@ -1083,6 +1083,114 @@ which is equivalent to the expression \(y = \dot{q_2}\). Even though it seems mo
 \medskip
 
 What makes this example more significant than the previous one is that there's now two different ``entities'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.} Rather than just analyzing multiple states (position, velocity) of a singular entity like we did with the pendulum, we're now taking a look at the position and velocity of TWO masses. That's kind of nifty, I think.
+
+\section*{Preface - Frequency Domain Modeling}
+
+While using the state-space representation of a system can be advantageous in situations where we have multiple inputs and multiple outputs, sometimes the linear algebra just gets too unwieldy, especially if you don't have Python or MATLAB sitting in front of you. (This isn't to say that transfer functions aren't easily implementable in Python or MATLAB, though.)
+
+\medskip
+
+In lieu of modeling in the time domain, we can use \textbf{transfer functions} to mathematically model systems in the frequency domain. This ends up being really useful in ME351 when we talk about how to control physical systems rather than just analyzing them. Transfer functions are also much easier to translate into graphical interpretations of systems, like Bode plots.
+
+\section{The Laplace Transform}
+
+\section{Block Diagrams}
+
+When possible, we try to think of all systems as black boxes with an input and an output. As such, that's how we 
+
+\section{Electrical Networks and Impedance}
+
+In ESC221, you may have covered the series RLC circuit, pictured as follows:
+
+\bicture{6_rlc}
+
+where the source voltage \(V_s\) is the input of the system and the voltage across the capacitor \(V_c\) is the output. The governing equation of this system is a second order differential equation, but using transfer functions, we can turn this differential equation into an algebraic one.
+
+\medskip
+
+This is especially advantageous when conducting an alternating current (AC) analysis of the network, when \(V_s\) could be a sinusoidal function. However, the formulation described in this course is applicable to any input signal.
+
+\medskip
+
+The \textbf{impedance} \(Z\) of a two-terminal passive component like a resistor, capacitor, or inductor, is defined as the ratio of the Laplace transform of the voltage \(\tilde{V}\) to the Laplace transform of the current \(\tilde{I}\).
+
+\medskip
+
+Ohm's law states that \(V = IR\). When we take the Laplace transform of the expression, we get:
+
+\vspace{-0.1in}
+\[\tilde{V} = \tilde{I} R\]
+
+Thus, the impedance of a resistor is:
+
+\vspace{-0.1in}
+\[Z_R = \frac{\tilde{V}}{\tilde{I}} = R\]
+
+That was...anticlimactic. Let's try a capacitor next. The capacitive relationship states that \(q = \int I \, dt = CV\). When we take the Laplace transform of the expression, we get:
+
+\vspace{-0.1in}
+\[\frac{1}{s} \tilde{I} = C\tilde{V}\]
+
+Thus, the impedance of a capacitor is:
+
+\vspace{-0.1in}
+\[Z_C = \frac{\tilde{V}}{\tilde{I}} = \frac{1}{sC}\]
+
+That's more interesting. Finally, the inductive relationship states that \(V = L\frac{dI}{dt}\). Again, Laplace transform:
+
+\vspace{-0.1in}
+\[\tilde{V} = s L\tilde{I}\]
+
+and the impedance of an inductor is:
+
+\vspace{-0.1in}
+\[Z_L = \frac{\tilde{V}}{\tilde{I}} = sL\]
+
+Here's a bit more context - think of impedance as the frequency domain ``value'' of a passive component. Complex resistance, if you will. Resistance is real, so there's no reason impedance is different in the Laplace'd analog of Ohm's law.
+
+\medskip
+
+Relatedly, for a direct current (DC) circuit, \(s=0\).
+
+\medskip
+
+Let's take a look at the circuit again. The governing equation, found using Kirchhoff's voltage law, is:
+
+\vspace{-0.1in}
+\[V_s - RI - L \frac{dI}{dt} - V_c = 0\]
+
+Using these newfound impedances, we can immediately convert this system to a transfer function. Let's Laplace the shit out of this thing. (Keep in mind that a transfer function is output over input.)
+
+\vspace{-0.1in}
+\[\tilde{V_s} - \tilde{I} (Z_R + Z_L + Z_C) = 0\]
+\[\tilde{V_s} - \tilde{I} (R + sL + \frac{1}{sC}) = 0\]
+\[U = \tilde{V_s} = \frac{\tilde{I}}{R + sL + \frac{1}{sC}}\qquad \qquad Y = \tilde{V_c} = \frac{\tilde{I}}{sC}\]
+\[\frac{Y}{U} = \frac{\frac{\tilde{I}}{sC}}{\frac{\tilde{I}}{R + sL + \frac{1}{sC}}} = \frac{s^2 CL + sCR + 1}{s^2 C^2}\]
+
+We can expand this idea to more than just passive components.\footnote{In the electrical networks world, we can translate operational amplifiers (op amps) into impedances as well. Absolutely terrifying.} Impedance is a reliable method for thinking about mechanical systems as well (such as mass-spring systems, systems involving gears, motors, etc.)
+
+\medskip
+
+The pigeonhole here is that these systems are modeled as linear. The frequency domain does not translate well when we study nonlinear systems; instead, we tend to use more qualitative methods such as drawing phase portraits or bifurcation analysis.
+
+
+\chapter{Call and Response!}
+
+\section*{Preface}
+
+It's important to note that the transfer function is just a description of the system, not its inputs and outputs. From the section on block diagrams, we know that the Laplace transform of the output signal is equal to the product of the Laplace transform of the input signal and the transfer function of the system.
+
+\medskip
+
+As such, it's advantageous to think about how different systems react to common input signals to quantify the stability of a system. For example, how does your heating system react when you input a temperature setting on your thermostat?
+
+\section{It's About Time}
+
+First, let's revisit the \textbf{step response}.
+
+\section{The Squiggly One}
+
+talk about mag, phase, some basic filters
 
 \end{flushleft}
 \end{onehalfspacing}

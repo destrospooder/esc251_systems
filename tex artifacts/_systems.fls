@@ -992,6 +992,10 @@ INPUT ./8_spr.png
 INPUT 8_spr.png
 INPUT ./8_spr.png
 INPUT ./8_spr.png
+INPUT ./6_rlc.png
+INPUT 6_rlc.png
+INPUT ./6_rlc.png
+INPUT ./6_rlc.png
 INPUT _systems.aux
 INPUT ./_systems.out
 INPUT ./_systems.out

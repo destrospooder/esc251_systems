@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1677527744 "c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex" "_systems.pdf" "_systems" 1677527747
+["pdflatex"] 1678135796 "c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex" "_systems.pdf" "_systems" 1678135798
   "1_sys1.png" 1674138991 12321 66b1730dcab841f82162cf749fccfcc7 ""
   "1_sys2.png" 1674139432 25249 959360440a38dfccd35dda3bb0089f66 ""
   "2_cpx.png" 1674146065 51006 feb1ca5eec1bfa3c628fcabe49f8ac5f ""
@@ -10,14 +10,15 @@
   "5_env.png" 1674491264 151901 af2021f13fe55b4db744f8c33d36d84c ""
   "6_inert.png" 1675106965 16219 28b457001c72e4c2eedaae037e67c0fb ""
   "6_pipe.png" 1675108167 14419 f3f8e443455e22e574d1180582452c9c ""
+  "6_rlc.png" 1678131096 39578 45bdf3f8150b3408bce4edf7ea534c86 ""
   "7_fpe.png" 1674742869 20357 0cb24af30286acccfd04e04a01b6f163 ""
   "8_pend.png" 1675953738 14019 b35b63fd97b3022f83763cc840d107b9 ""
   "8_spr.png" 1676300322 31923 d23fe7f4907b6bd19ff72f86a970b71a ""
-  "_systems.aux" 1677527747 3564 c1c803960d9a5c232d92d8663ad63303 "pdflatex"
-  "_systems.out" 1677527747 3615 c353afcbcef1dcf3ad11e682a2a25cee "pdflatex"
-  "_systems.tex" 1677527743 57050 ca5a41d33825f392ef590e10b21459b6 ""
-  "_systems.toc" 1677527747 1677 e7b777e799b22e4d1b1772f70ac7f521 "pdflatex"
-  "c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex" 1677527743 57050 ca5a41d33825f392ef590e10b21459b6 ""
+  "_systems.aux" 1678135798 4375 58d1e34805b49b22fcacb1f5305e378c "pdflatex"
+  "_systems.out" 1678135798 4611 7badd83dd57db4dab5573b7c7ef1f8f8 "pdflatex"
+  "_systems.tex" 1678135795 62376 cfb86c577410f5e56785bf8602730301 ""
+  "_systems.toc" 1678135798 2166 0620b99d5f8f6bee3fa8296b92dc8d13 "pdflatex"
+  "c:/Users/Ben/Desktop/tex stuff/_251/tex artifacts/_systems.tex" 1678135795 62376 cfb86c577410f5e56785bf8602730301 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1639425966 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1639428288 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1639426673 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
