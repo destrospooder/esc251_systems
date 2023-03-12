@@ -1,0 +1,87 @@
+\documentclass{report}
+\usepackage[papersize={8.5in,11in}, margin=0.4in, bottom = 1.3in, headsep=.3in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage[none]{hyphenat}%%%%
+\usepackage[scr]{rsfso}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tikz}
+
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+\usetikzlibrary{positioning}
+
+\addtolength{\topmargin}{.5in}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{The Cooper Union \\ESC251 - System Dynamics\\Prof. Luchtenburg}
+\fancyhead[R]{Benjamin Aziel  \\Spring 2023\\}
+\setlength{\headheight}{23pt}
+
+\newcommand{\Laplace}{\mathscr{L}}
+\newcommand{\UnitStep}{\mathscr{U}}
+\newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\Volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+
+\newcommand{\bicture}[1]{
+\begin{center}
+    {\includegraphics[height=4cm]{#1}}
+\end{center}}
+
+\begin{document}
+\begin{onehalfspacing}
+\begin{flushleft}
+
+\begin{enumerate}
+    \item \textbf{Spring break} \, Consider the following mechanical system.
+    \bicture{p1}
+    \begin{enumerate}
+        \item Derive the governing equations of the system. (Draw a free-body diagram, try not to bungle your signs! Assume gravity's ``turned off''.)
+        \item Represent it in state-space form, where the states are the displacement of mass 1 (\(x_1\)), the displacement of mass 2 (\(x_2\)), the velocity of mass 1 (\(\dot{x}_1\)), and the velocity of mass 2 (\(\dot{x}_2\)). We're interested in the position of mass 1 over time, so our output equation is \(y = x_1\).
+        \item Assume \(m\) = 40 kg, \(b\) = 0.5 kg/s, and \(k\) = 0.8 kg/s\(^2\). Our initial conditions are \((x_1(0), x_2(0), \dot{x}_1(0), \dot{x}_2(0))\) \(= (0, 0.4, 0.5, 0)\). Use Matlab or Python to plot the unforced system response to these initial states using the command \texttt{initial} for 600 seconds.
+        \item (Bonus) Hopefully, you're seeing a pretty unsteady transient for the first 150 seconds, followed by steady undamped oscillation until what appears to be the end of time. Based on the system, why do you suppose that is?
+    \end{enumerate}
+    \item \textbf{Outbreak!} \, A disease is spreading through the country of Clonbarg! Clonbarg has a population of \(p\) people, and the disease spreads by contact between infected people and those vulnerable to the disease. Let's say initially that everyone's vulnerable to the disease, and President Aziel (that's me) built a huge wire fence locking everyone in so the epidemic doesn't spread. Suddenly, a keen engineering student taking ESC251 at the Cooper Union (who got stuck in this country for some reason) decides to apply a model called an SIR model for the spread of the disease throughout Clonbarg.
+    
+    \medskip
+
+    An SIR model's pretty nifty. At time \(t\), \(s(t)\) represents the number of Clonbargians who are vulnerable to the disease but not yet infected, \(i(t)\) represents the number of Clonbargians currently infected with the disease, and \(r(t)\) represents the number of people who have recovered from the disease. \textbf{Every Clonbargian fits into one of these three categories; there's no half-sick people here.} Here's a simplified version of the model that doesn't factor in birth or death:
+
+    \[\frac{ds}{dt} = -\alpha si\]
+    \[\frac{di}{dt} = -\beta i + \alpha si\]
+    \[\frac{dr}{dt} = \beta i\]
+
+    where \(\alpha\) and \(\beta\) are constants related to the aggressiveness and infectivity of the disease.
+
+    \begin{enumerate}
+        \item When you add up all of these equations, we see that the sum of the derivatives of \(s\), \(i\), and \(r\) is equal to 0. Why?
+        \item Suppose the number of infected people at \(t=0\) is \(i_0\), and no Clonbargians have recovered from the disease yet. What's the initial condition of \(s\)?
+        \item Uh oh! Looks like there's no immunity after people recover, so they're immediately susceptible again. Revise the model to fit this new factoid in.
+    \end{enumerate}
+    \item \textbf{Here's a Gimme} \, Consider the following initial value problem:
+    \vspace{-0.1in}
+    \[\ddot{x} + 4 \dot{x} + 9 x = u, \, x(0) = \dot{x}(0) = 0\]
+    \begin{enumerate}
+        \item What are the poles of the system? Draw a pole plot and describe the dynamic behavior you expect.
+        \item Find the solution to the initial value problem, where \(u\) is a unit step.
+        \item Suppose our desired output is \(y=x\). What's the transfer function of the system?
+    \end{enumerate}
+\end{enumerate}
+
+\end{flushleft}
+\end{onehalfspacing}
+\end{document}

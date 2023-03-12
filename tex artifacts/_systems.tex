@@ -1182,15 +1182,44 @@ It's important to note that the transfer function is just a description of the s
 
 \medskip
 
-As such, it's advantageous to think about how different systems react to common input signals to quantify the stability of a system. For example, how does your heating system react when you input a temperature setting on your thermostat?
+As such, it's advantageous to think about how different systems react to common input signals to quantify the stability of a system. For example, how does your heating system react when you input a temperature setting on your thermostat? How does a ball react when you kick it really hard?
 
 \section{It's About Time}
 
-First, let's revisit the \textbf{step response}.
+You may recall that the total response of a system is equal to the sum of the natural response (homogeneous/transient solution) and the forced response (particular/steady-state solution). When we have the representation of a system (whether it's a transfer function or a state-space representation) in front of us, it's usually cumbersome to go back and solve the differential equation to learn about the system's behavior. As a result, 
 
 \section{The Squiggly One}
 
 talk about mag, phase, some basic filters
+
+Let's take a look at a first order continuous system.
+
+\vspace{-0.1in}
+\[\tau \dot{y} + y = Ku\]
+
+We can discretize this system by using finite differences in lieu of derivatives. At time \(t_k\), we can approximate the derivative \(\dot{y}(t_k)\) as follows:
+
+\vspace{-0.1in}
+\[\dot{y}(t_k) \approx \frac{y(t_k) - y(t_{k-1})}{t_k - t_{k-1}}\]
+
+Plugging in, we get:
+
+\vspace{-0.1in}
+\[\tau \frac{y(t_k) - y(t_{k-1})}{t_k - t_{k-1}} + y(t_{k-1}) = Ku(t_{k-1})\]
+
+Let's define \(\Delta t = t_k - t_{k-1}\) and \(\alpha = \frac{\tau}{\Delta t}\) With a bit more algebra, we find that:
+
+\[y(t_k) = \frac{\alpha - 1}{\alpha} y(t_{k-1}) + \frac{K}{\alpha} u(t_{k-1})\]
+
+One more simplification: \(\beta = \alpha^{-1}\):
+
+\[y(t_k) = (1-\beta) y(t_{k-1}) + K \beta u(t_{k-1})\]
+
+Discretization makes it much easier to use computational tools like MATLAB and Python to manipulate a signal without preexisting toolboxes.
+
+\medskip
+
+Let's specify a bit more. The frequency response is 
 
 \end{flushleft}
 \end{onehalfspacing}
