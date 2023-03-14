@@ -266,7 +266,7 @@ A more simple form of the governing equation for one of these first order system
 \vspace{-0.1in}
 \[\tau \dot{y} + y = ku\]
 
-when we have a constant input. Think of it as turning on a light switch at time \(t=0\). \(k\) is just a scale factor, and \(u(t)\) is the unit-step function, which is just \(0\) when \(t<0\) and \(1\) when \(t>0\).\footnote{We don't care about what happens at \(t=0\). Stop it.}
+when we have a constant input. Think of it as turning on a light switch at time \(t=0\). \(k\) is just a scale factor, and \(u = u_s(t)\), where \(u_s\) is the unit step function, which is just \(0\) when \(t<0\) and \(1\) when \(t>0\).\footnote{We don't care about what happens at \(t=0\). Stop it.}
 
 \vspace{-0.1in}
 \[y(t) = ce^{-\frac{t}{\tau}} + k\]
@@ -1084,7 +1084,7 @@ What makes this example more significant than the previous one is that there's n
 
 \section{The Unit Impulse}
 
-blah dirac delta
+
 
 \section*{Preface - Frequency Domain Modeling}
 
@@ -1094,7 +1094,7 @@ While using the state-space representation of a system can be advantageous in si
 
 In lieu of modeling in the time domain, we can use \textbf{transfer functions} to mathematically model systems in the frequency domain. This ends up being really useful in ME351 when we talk about how to control physical systems rather than just analyzing them. Transfer functions are also much easier to translate into graphical interpretations of systems, like Bode plots.
 
-\section{The Laplace Transform and Operational Properties}
+\section{The Laplace Transform}
 
 You've likely brushed upon Laplace transforms in Ma240, so I'll try to reintroduce them\dots err\dots less formally.
 
@@ -1126,7 +1126,7 @@ where \(\alpha, \,\beta\) are constants. Here are a few common ones (easily veri
 
 \vspace{-0.1in}
 \[\mathscr{L} \{ \delta(t) \} = 1\]
-\[\mathscr{L} \{ u(t) \} = \frac{1}{s}\]
+\[\mathscr{L} \{ 1 \} = \frac{1}{s}\]
 \[\mathscr{L} \{ e^{at} \} = \frac{1}{s-a}\]
 
 Confirm them yourself! (Or find a table of Laplace transforms, I don't know\dots)
@@ -1146,17 +1146,114 @@ or:
 \vspace{-0.1in}
 By recursion, it is apparent that the Laplace transform of a second derivative is:
 
+\vspace{-0.1in}
 \[\mathscr{L} \qty{\frac{d^2f(t)}{dt^2}} = sF'(s) - f'(0)= s(sF(s) - f(0)) - f'(0) = s^2 F(s) - sf(0) - f'(0)\]
 
 and an \(n\)th derivative is:
 
+\vspace{-0.1in}
 \[\mathscr{L} \qty{\frac{d^n f(t)}{dt^n}} = s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) - \dots - s f^{(n-2)}(0) - f^{(n-1)} (0)\]
 
-\section{Convoluted!}
+Finally, we'll introduce the notion of the \textbf{inverse Laplace transform}, which transforms an expression in the \(s\)-domain back into the time domain.\footnote{It might seem peculiar that I'm abstaining from providing a formula to directly calculate the inverse Laplace transform. You can look up Mellin's inverse formula for additional hardship, but rest assured that it's WAY more convenient to think of the inverse Laplace transform as just that - an inverse Laplace transform, instead of as its own distinct transform.} More concisely:
+
+\vspace{-0.1in}
+\[\mathscr{L}^{-1} \qty{F(s)} = f(t)\]
+
+Notably, the inverse Laplace transform is also a linear transformation.
+
+\medskip
+
+Using the technology we've formalized\footnote{Man, I said I was going to do this less formally!} thus far, we can use the Laplace transform to solve initial value problems. Say we wanted to solve the IVP:
+
+\vspace{-0.1in}
+\[\ddot{y} - 4\dot{y} + 3 y = e^{2t}\]
+
+where \(y\) is a function of \(t\), and \(y(0) = \dot{y}(0) = 0\). First, we transform the whole equation into the \(s\)-domain.
+
+\vspace{-0.1in}
+\[s^2 Y - 4 sY + 3 Y = \frac{1}{s-2}\]
+
+Since our objective is to solve for \(y(t)\), it's wise to isolate \(Y(s)\) on one side, so when we take the inverse Laplace transform, we immediately have an explicit formula \(y\).
+
+\vspace{-0.1in}
+\[Y (s^2 - 4 s + 3) = \frac{1}{s-2}\]
+\[Y = \frac{1}{(s-2)(s^2 - 4 s + 3)}\]
+
+We then find the partial fraction decomposition of this rational function, so that transforming back to the time domain is easier.
+
+\vspace{-0.1in}
+\[Y = -\qty(\frac{1}{s-2}) + \frac{1}{2}\qty(\frac{1}{s-1}) + \frac{1}{2}\qty(\frac{1}{s-3})\]
+
+And finally, we transform back.
+
+\vspace{-0.1in}
+\[y = -e^{2t} + \frac{1}{2} e^{t} + \frac{1}{2} e^{3t}\]
+
+which matches whatever we'd get if we tried using a time domain method like the method of undetermined coefficients. Of course, we did a problem with zero initial conditions, but rest assured, if your goal is just to solve differential equations, we can consider cases with nonzero initial conditions as well.
+
+\section{It's Convoluted!}
+
+But what if we wanted to find the Laplace transform of an \textit{integral}?
 
 \section{Transfer Functions and Block Diagrams}
 
-When possible, we try to think of all systems as black boxes with an input and an output. As such, that's how we 
+When possible, we try to think of all systems as black boxes with an input and an output. We've covered how to represent a system in the time domain using the state-space representation. Let's try something else.
+
+\medskip
+
+\textbf{Transfer functions} are often preferred over state space representations in certain situations because they are simple and easy to work with, especially for linear systems with a single input and a single output. They can be easily manipulated using some algebra and can be used to compute a system's response to various input signals. 
+
+\medskip
+
+Transfer functions are also very useful for frequency-domain analysis, such as calculating the system's frequency response or designing filters to tweak the system's frequency characteristics. 
+
+\medskip
+
+Mathematically, a transfer function is the ratio of the Laplace transform of the output of a system \(Y(s)\) to the Laplace transform of its input \(U(s)\), with all initial conditions assumed to be zero. The transfer function is typically denoted as \(G(s)\), where:
+
+\vspace{-0.1in}
+\[G(s) = \frac{Y(s)}{U(s)}\]
+
+That's all there is to it. Let's try a variation of the system we tackled before.
+
+\vspace{-0.1in}
+\[\ddot{y} - 4 \dot{y} + 3y = u\]
+
+So instead of that exponential expression on the right side of the equation, we now have an arbitrary input \(u(t)\). Because we're trying to find the transfer function, we assume zero initial conditions and take the Laplace transform of everything.
+
+\vspace{-0.1in}
+\[s^2 Y - 4 s Y + 3Y = U\]
+
+Then, we find \(G\).
+
+\vspace{-0.1in}
+\[G = \frac{Y}{U} = \frac{1}{s^2 - 4s + 3}\]
+
+Using this transfer function, we can find the system response to any input we want. Say we're interested in the response to a step input \(u_s(t)\). We can retrofit the definition of a transfer function to solve for the system response.
+
+\vspace{-0.1in}
+\[Y = G U\]
+
+In this scenario, \(U\) is the Laplace transform of \(u_s(t)\), or \(\frac{1}{s}\).
+
+\vspace{-0.1in}
+\[Y = \frac{1}{s^3 - 4s^2 + 3s}\]
+
+which I'm too lazy to inverse Laplace transform. Knock yourself out.
+
+\medskip
+
+This seems like as good a time as any to introduce the concept of a \textbf{block diagram}, or a visual representation of a system, using blocks and arrows to break down components. We literally represent components as black boxes, without regard for whatever's going on inside. All that matters is what comes in and what goes out. Seems perfect for a transfer function.
+
+\begin{center}
+    {\includegraphics[height=2cm]{6_bd}}
+\end{center}
+
+Here's a block diagram. \(U\) is our input signal, \(Y\) is the output signal, and \(G\) is the transfer function representation of the system. When a signal enters a system in a block diagram, the output signal will be the product of the signal and the system's transfer function.
+
+\medskip
+
+We can use additional tools of block diagram algebra to simplify and manipulate these diagrams, which ends up being vital when we start introducing feedback control into the mix.
 
 \section{Electrical Networks and Impedance}
 
@@ -1232,7 +1329,6 @@ We can expand this idea to more than just passive components.\footnote{In the el
 \medskip
 
 The pigeonhole here is that these systems are modeled as linear. The frequency domain does not translate well when we study nonlinear systems; instead, we tend to use more qualitative methods such as drawing phase portraits or bifurcation analysis.
-
 
 \chapter{Call and Response!}
 

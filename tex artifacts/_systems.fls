@@ -1003,6 +1003,10 @@ INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/rsfso/rsfso10.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/rsfso/rsfso7.tfm
 INPUT c:/texlive/2021/texmf-dist/fonts/vf/public/rsfso/rsfso10.vf
 INPUT c:/texlive/2021/texmf-dist/fonts/tfm/public/rsfso/rrsfso10.tfm
+INPUT ./6_bd.png
+INPUT 6_bd.png
+INPUT ./6_bd.png
+INPUT ./6_bd.png
 INPUT ./6_rlc.png
 INPUT 6_rlc.png
 INPUT ./6_rlc.png

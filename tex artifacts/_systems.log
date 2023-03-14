@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  13 MAR 2023 21:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  14 MAR 2023 03:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -874,10 +874,32 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [26]
-<6_rlc.png, id=386, 476.27937pt x 150.5625pt>
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[27]
+<6_bd.png, id=395, 324.21124pt x 106.89937pt>
+File: 6_bd.png Graphic file (type png)
+<use 6_bd.png>
+Package pdftex.def Info: 6_bd.png  used on input line 1249.
+(pdftex.def)             Requested size: 172.58308pt x 56.9055pt.
+
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[28 <./6_bd.png>]
+<6_rlc.png, id=401, 476.27937pt x 150.5625pt>
 File: 6_rlc.png Graphic file (type png)
 <use 6_rlc.png>
-Package pdftex.def Info: 6_rlc.png  used on input line 1165.
+Package pdftex.def Info: 6_rlc.png  used on input line 1262.
 (pdftex.def)             Requested size: 360.03568pt x 113.81102pt.
 
 
@@ -887,7 +909,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[27 <./6_rlc.png>]
+[29 <./6_rlc.png>]
 
 Package fancyhdr Warning: \headheight is too small (23.0pt): 
 (fancyhdr)                Make it at least 34.54448pt, for example:
@@ -895,9 +917,9 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[28]
+[30]
 Chapter 6.
-[29
+[31
 
 ]
 
@@ -907,23 +929,23 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[30] (./_systems.aux)
+[32] (./_systems.aux)
 Package rerunfilecheck Info: File `_systems.out' has not changed.
-(rerunfilecheck)             Checksum: 1EDD5ABEBAF59437FEA0723D3B3395D5;4840.
+(rerunfilecheck)             Checksum: 511CE1DBC54CC1CD235EF93768F0C436;4724.
  ) 
 Here is how much of TeX's memory you used:
- 22212 strings out of 478353
- 404789 string characters out of 5852094
- 698873 words of memory out of 5000000
- 39853 multiletter control sequences out of 15000+600000
+ 22226 strings out of 478353
+ 404958 string characters out of 5852094
+ 698872 words of memory out of 5000000
+ 39863 multiletter control sequences out of 15000+600000
  415066 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,15n,91p,863b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on _systems.pdf (31 pages, 749570 bytes).
+Output written on _systems.pdf (33 pages, 767452 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
- 418 compressed objects within 5 object streams
- 90 named destinations out of 1000 (max. 500000)
- 299 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 429 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 
