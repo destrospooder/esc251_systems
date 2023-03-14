@@ -832,7 +832,7 @@ Prove it! It's kind of fun.
 
 \section{Eigen Eigen Eigen}
 
-\chapter{Modeling in Different Domains}
+\chapter{Modeling!}
 
 \section*{Preface - Time Domain Modeling}
 
@@ -1021,8 +1021,6 @@ for \(t \ge t_0\), \(\underbar{\(x\)}(t_0)\), where:
 \textbf{C} is the output matrix, of size \(q \times n\) \\
 \textbf{D} is the feedforward matrix, of size \(q \times p\)
 
-\section{Another Mass? Seriously?}
-
 Let's try another example, this time a translational mechanical system. Block 1 of mass \(m\) is attached to a fixed wall by dashpot with damping coefficient \(b\). Block 2, also of mass \(m\), is attached to block 1 by a spring of spring constant \(k\). Gravity is turned off.
 
 \bicture{8_spr}
@@ -1084,6 +1082,10 @@ which is equivalent to the expression \(y = \dot{q_2}\). Even though it seems mo
 
 What makes this example more significant than the previous one is that there's now two different ``entities'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.} Rather than just analyzing multiple states (position, velocity) of a singular entity like we did with the pendulum, we're now taking a look at the position and velocity of TWO masses. That's kind of nifty, I think.
 
+\section{The Unit Impulse}
+
+blah dirac delta
+
 \section*{Preface - Frequency Domain Modeling}
 
 While using the state-space representation of a system can be advantageous in situations where we have multiple inputs and multiple outputs, sometimes the linear algebra just gets too unwieldy, especially if you don't have Python or MATLAB sitting in front of you. (This isn't to say that transfer functions aren't easily implementable in Python or MATLAB, though.)
@@ -1092,9 +1094,67 @@ While using the state-space representation of a system can be advantageous in si
 
 In lieu of modeling in the time domain, we can use \textbf{transfer functions} to mathematically model systems in the frequency domain. This ends up being really useful in ME351 when we talk about how to control physical systems rather than just analyzing them. Transfer functions are also much easier to translate into graphical interpretations of systems, like Bode plots.
 
-\section{The Laplace Transform}
+\section{The Laplace Transform and Operational Properties}
 
-\section{Block Diagrams}
+You've likely brushed upon Laplace transforms in Ma240, so I'll try to reintroduce them\dots err\dots less formally.
+
+\medskip
+
+The Laplace transform is an essential tool for analyzing and designing control systems, making them a vital topic to cover in preparation for ME351. By learning about Laplace transforms, we can develop a deep understanding of the behavior of dynamic systems and how to control them.
+
+\medskip
+
+Laplace transforms allow us to simplify differential equations that describe the behavior of a system in the time-domain, into simpler algebraic equations in the \(s\)-domain. These equations can be easily analyzed to determine important system characteristics such as stability, steady-state error, and transient response.
+
+\medskip
+
+Furthermore, understanding Laplace transforms is crucial for designing controllers that can effectively control the behavior of a system. For example, by using Laplace transforms to analyze a system's frequency response, engineers can design controllers that attenuate unwanted frequencies, leading to more desirable system performance.
+
+\medskip
+
+Let's cut to the chase. The (one-sided) Laplace transform of a function \(f(t)\) is a new function \(F(s)\), \(s \in \mathbb{C}\), defined by:\footnote{The two-sided Laplace transform instead has integral limits of \(-\infty\) and \(\infty\), but for causal signal inputs, the one-sided Laplace transform is equivalent. (A causal signal is a signal that is 0 for all \(t<0\).)}
+
+\vspace{-0.1in}
+\[\mathscr{L} \{ f(t) \} = F(s) = \int_{0^-} ^\infty e^{-st} f(t) dt\]
+
+As the Laplace transform is an integral transform, we know that it is linear. Thus, taking the Laplace transform of a linear combination of functions yields a linear combination of the Laplace transforms of the functions:
+
+\vspace{-0.1in}
+\[\mathscr{L} \{ \alpha f(t) + \beta g(t) \} = \mathscr{L} \{ \alpha f(t) \} + \mathscr{L} \{ \beta g(t) \} = \alpha \mathscr{L} \{ f(t) \} + \beta \mathscr{L} \{ g(t) \} = \alpha F(s) + \beta G(s)\]
+
+where \(\alpha, \,\beta\) are constants. Here are a few common ones (easily verifiable with the integral definition).
+
+\vspace{-0.1in}
+\[\mathscr{L} \{ \delta(t) \} = 1\]
+\[\mathscr{L} \{ u(t) \} = \frac{1}{s}\]
+\[\mathscr{L} \{ e^{at} \} = \frac{1}{s-a}\]
+
+Confirm them yourself! (Or find a table of Laplace transforms, I don't know\dots)
+
+\medskip
+
+Our objective is to use the Laplace transform to model physical systems. Thus, it is imperative that we find a way to take the Laplace transform of a derivative. Provided \(f\) and its derivatives are continuous from \(0 \le t < \infty\), and are of exponential order,\footnote{A function \(f(t)\) is said to be of exponential order if there exist positive constants \(a\) and \(b\) such that \(|f(t)| \le ae^{bt}\) for all \(t\ge 0\).} we do so as follows:
+
+\vspace{-0.1in}
+\[\mathscr{L} \qty{\frac{df(t)}{dt}} = \int_{0^-} ^\infty e^{-st} \frac{df(t)}{dt} dt = \qty\Big[ e^{-st} f(t) ]_{0^-}^{\infty} - \int_{0^-} ^\infty -s e^{-st} f(t) dt = -f(0) + sF(s)\]
+
+or:
+
+\vspace{-0.1in}
+\[\mathscr{L} \qty{\frac{df(t)}{dt}} = sF(s) - f(0)\]
+
+\vspace{-0.1in}
+By recursion, it is apparent that the Laplace transform of a second derivative is:
+
+\[\mathscr{L} \qty{\frac{d^2f(t)}{dt^2}} = sF'(s) - f'(0)= s(sF(s) - f(0)) - f'(0) = s^2 F(s) - sf(0) - f'(0)\]
+
+and an \(n\)th derivative is:
+
+\[\mathscr{L} \qty{\frac{d^n f(t)}{dt^n}} = s^n F(s) - s^{n-1} f(0) - s^{n-2} f'(0) - \dots - s f^{(n-2)}(0) - f^{(n-1)} (0)\]
+
+\section{Convoluted!}
+
+\section{Transfer Functions and Block Diagrams}
 
 When possible, we try to think of all systems as black boxes with an input and an output. As such, that's how we 
 
