@@ -829,9 +829,6 @@ which comes in handy a lot in advanced dynamics. Additionally, we can make an al
 \[\underbar{\(x\)} \times \underbar{\(y\)} = \text{skew}(\underbar{\(x\)}) \underbar{y}\]
 
 Prove it! It's kind of fun.
-
-\section{Eigen Eigen Eigen}
-
 \chapter{Modeling!}
 
 \section*{Preface - Time Domain Modeling}
@@ -1080,11 +1077,70 @@ which is equivalent to the expression \(y = \dot{q_2}\). Even though it seems mo
 
 \medskip
 
-What makes this example more significant than the previous one is that there's now two different ``entities'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.} Rather than just analyzing multiple states (position, velocity) of a singular entity like we did with the pendulum, we're now taking a look at the position and velocity of TWO masses. That's kind of nifty, I think.
+What makes this example more significant than the previous one is that there's now two different ``entities'' to analyze.\footnote{You could try to put the two tanks problem from HW1 in state-space form for extra practice.} Rather than just analyzing multiple states (position, velocity) of a singular entity like we did with the pendulum, we're now taking a look at the position and velocity of \textit{two} masses. That's kind of nifty, I think.
 
 \section{The Unit Impulse}
 
+\textit{THWACK!}
 
+\medskip
+
+You hear that? It's the sound of Prof. Baglione smacking something with an impact hammer, a tool used to simultaneously excite something and measure the impact force at the same time.
+
+\medskip
+
+It's really common in mechanical (and electrical, ugh) scenarios to want to analyze a very large force over a very short period of time. Say we're interested in modeling a batter's hit, a car crash, or\dots I don't know\dots whacking a mass-spring system with an impact hammer.
+
+\medskip
+
+Consider a model of a hammer strike, pictured as follows.
+
+\bicture{8_impulse}
+
+This strike is modeled as a rectangular ``pulse'', where the rule is:
+
+\vspace{-0.1in}
+\[F(t) = \begin{cases}
+    0 & \text{if } t \leq t_0 - \epsilon \\
+    \frac{F_0}{2\epsilon} & \text{if } t_0 - \epsilon < t < t_0 + \epsilon \\
+    0 & \text{if } t \ge t_0 + \epsilon
+\end{cases}\]
+
+When integrated over time, \(F(t)\) yields the \textbf{impulse} over \(F\).
+
+\vspace{-0.1in}
+\[\text{Imp} = \int_{0^-}^{\infty} F(t) \, dt = \int_{t_0 - \epsilon}^{t_0 + \epsilon} \frac{F_0}{2\epsilon} \, dt = \frac{F_0}{2\epsilon} \qty((t_0 + \epsilon)-(t_0 - \epsilon)) = F_0\]
+
+This trick of ``ripping out the integrand'' only works when \(\epsilon \neq 0\). Nevertheless, we investigate the case where \(\epsilon \to 0\).\footnote{Figure from Zill, et al. (8)}
+
+\begin{center}
+    {\includegraphics[height=8cm]{8_imp}}
+\end{center}
+
+As \(\epsilon\) gets smaller and smaller, the magnitude of force \(\frac{F_0}{2\epsilon}\) gets larger and larger. Nevertheless, the impulse remains equal to \(F_0\). We define the \textbf{impulse function} as a function \(F(t)\) with the following two properties:
+
+\vspace{-0.1in}
+\[F(t-t_0)=0, \; \; t\neq t_0 \qquad \qquad \int_{0^-}^\infty F(t) \, dt = F_0\]
+
+We call an impulse function where \(F_0 = 1\) the \textbf{unit impulse function}, also called the \textbf{Dirac delta function}, denoted \(\delta(t)\).\footnote{Not to be confused with the Kronecker delta!} Let's rewrite the above principles for the unit impulse.
+
+\vspace{-0.1in}
+\[\delta(t-t_0)=0, \; \; t\neq t_0 \qquad \qquad \int_{0^-}^\infty \delta(t) \, dt = 1\]
+
+It's important to realize that the unit impulse function\dots well\dots isn't a function. The idea of a ``function'' that is equal to 0 everywhere except \(t=t_0\), where it's equal to \(\infty\) is preposterous! Additionally, for this ``function'' to make sense, the integral would be equal to 0.
+
+\medskip
+
+\textbf{We don't care. We defined it that way.}\footnote{The less dismissive answer is that the unit impulse function something we call a generalized function. Go take a functional analysis course if you want to pursue this further.}
+
+\medskip
+
+There exists an alternative definition of the unit impulse used in signal processing (that will also end up useful later on in this course).
+
+\vspace{-0.1in}
+\[\int_{0^-}^\infty \delta(t-t_0) f(t)\, dt = f(t_0)\]
+
+where \(f\) is a continuous function. This is called the \textbf{sifting property} of the unit impulse function. The unit impulse function acts as a sampler; the juicy part of \(\delta(t-t_0)\) is located at \(t=t_0\), so integrating the product of the impulse \(\delta(t-t_0)\) and a continuous function \(f(t)\) yields \(f(t_0)\).
 
 \section*{Preface - Frequency Domain Modeling}
 
@@ -1159,7 +1215,7 @@ Finally, we'll introduce the notion of the \textbf{inverse Laplace transform}, w
 \vspace{-0.1in}
 \[\mathscr{L}^{-1} \qty{F(s)} = f(t)\]
 
-Notably, the inverse Laplace transform is also a linear transformation.
+The inverse Laplace transform is also a linear transformation. Notably, it's not unique; there exist distinct \(f\) and \(g\) such that \(\mathscr{L} \qty{f} = \mathscr{L} \qty{g}\).
 
 \medskip
 
@@ -1179,7 +1235,7 @@ Since our objective is to solve for \(y(t)\), it's wise to isolate \(Y(s)\) on o
 \[Y (s^2 - 4 s + 3) = \frac{1}{s-2}\]
 \[Y = \frac{1}{(s-2)(s^2 - 4 s + 3)}\]
 
-We then find the partial fraction decomposition of this rational function, so that transforming back to the time domain is easier.
+We then find the partial fraction decomposition of this rational function, so that transforming back to the time domain is easier.\footnote{If you're not that comfortable with partial fraction decomposition, it might be a good idea to look up the Heaviside cover-up method. Thank me later.}
 
 \vspace{-0.1in}
 \[Y = -\qty(\frac{1}{s-2}) + \frac{1}{2}\qty(\frac{1}{s-1}) + \frac{1}{2}\qty(\frac{1}{s-3})\]
@@ -1190,6 +1246,8 @@ And finally, we transform back.
 \[y = -e^{2t} + \frac{1}{2} e^{t} + \frac{1}{2} e^{3t}\]
 
 which matches whatever we'd get if we tried using a time domain method like the method of undetermined coefficients. Of course, we did a problem with zero initial conditions, but rest assured, if your goal is just to solve differential equations, we can consider cases with nonzero initial conditions as well.
+
+\textbf{find the impulse response of something}
 
 \section{It's Convoluted!}
 
@@ -1239,7 +1297,11 @@ In this scenario, \(U\) is the Laplace transform of \(u_s(t)\), or \(\frac{1}{s}
 \vspace{-0.1in}
 \[Y = \frac{1}{s^3 - 4s^2 + 3s}\]
 
-which I'm too lazy to inverse Laplace transform. Knock yourself out.
+which is left to complete as an exercise to the reader.\footnote{I'm too lazy to take the inverse Laplace transform of this. It's not difficult though, knock yourself out}
+
+\medskip
+
+Let's close out with one more thought. What if we have an input signal \(Y(s) = 1\)? Then the output signal is just equal to the transfer function \(G(s)\). Thus, it's valid to say that \textbf{the impulse response of a system is equivalent to the inverse Laplace transform of the transfer function}.\footnote{This might be more apparent if you think about this outside the Laplace domain, where \(y(t) = \delta(t)\).} We'll explore this more later on.
 
 \medskip
 

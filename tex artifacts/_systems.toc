@@ -14,14 +14,13 @@
 \contentsline {section}{\numberline {4.1}Linearity and Time-Invariance}{17}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Matrices, at Lightspeed}{18}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Transposition and Symmetry}{20}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Eigen Eigen Eigen}{21}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Modeling!}{22}{chapter.5}%
 \contentsline {section}{\numberline {5.1}The State-Space Approach}{22}{section.5.1}%
 \contentsline {section}{\numberline {5.2}The Unit Impulse}{26}{section.5.2}%
-\contentsline {section}{\numberline {5.3}The Laplace Transform}{26}{section.5.3}%
-\contentsline {section}{\numberline {5.4}It's Convoluted!}{28}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Transfer Functions and Block Diagrams}{28}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Electrical Networks and Impedance}{29}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Call and Response!}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}It's About Time}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}The Squiggly One}{31}{section.6.2}%
+\contentsline {section}{\numberline {5.3}The Laplace Transform}{27}{section.5.3}%
+\contentsline {section}{\numberline {5.4}It's Convoluted!}{29}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Transfer Functions and Block Diagrams}{29}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Electrical Networks and Impedance}{30}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Call and Response!}{33}{chapter.6}%
+\contentsline {section}{\numberline {6.1}It's About Time}{33}{section.6.1}%
+\contentsline {section}{\numberline {6.2}The Squiggly One}{33}{section.6.2}%

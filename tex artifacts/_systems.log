@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  14 MAR 2023 03:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.13)  14 MAR 2023 22:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -614,7 +614,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 
 [3]
 Chapter 2.
-<1_sys1.png, id=193, 151.06438pt x 106.89937pt>
+<1_sys1.png, id=187, 151.06438pt x 106.89937pt>
 File: 1_sys1.png Graphic file (type png)
 <use 1_sys1.png>
 Package pdftex.def Info: 1_sys1.png  used on input line 115.
@@ -622,7 +622,7 @@ Package pdftex.def Info: 1_sys1.png  used on input line 115.
 [4
 
  <./1_sys1.png>]
-<1_sys2.png, id=207, 318.18875pt x 142.03062pt>
+<1_sys2.png, id=201, 318.18875pt x 142.03062pt>
 File: 1_sys2.png Graphic file (type png)
 <use 1_sys2.png>
 Package pdftex.def Info: 1_sys2.png  used on input line 168.
@@ -636,7 +636,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [5 <./1_sys2.png>]
-<2_exp.png, id=222, 375.4025pt x 167.62625pt>
+<2_exp.png, id=216, 375.4025pt x 167.62625pt>
 File: 2_exp.png Graphic file (type png)
 <use 2_exp.png>
 Package pdftex.def Info: 2_exp.png  used on input line 209.
@@ -650,7 +650,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [6 <./2_exp.png>]
-<2_rc.png, id=230, 229.35687pt x 134.5025pt>
+<2_rc.png, id=224, 229.35687pt x 134.5025pt>
 File: 2_rc.png Graphic file (type png)
 <use 2_rc.png>
 Package pdftex.def Info: 2_rc.png  used on input line 221.
@@ -664,7 +664,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [7 <./2_rc.png>]
-<2_step.png, id=237, 661.47125pt x 149.55875pt>
+<2_step.png, id=231, 661.47125pt x 149.55875pt>
 File: 2_step.png Graphic file (type png)
 <use 2_step.png>
 Package pdftex.def Info: 2_step.png  used on input line 281.
@@ -679,7 +679,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 
 [8 <./2_step.png>]
 Chapter 3.
-<2_unf.png, id=245, 289.58188pt x 140.525pt>
+<2_unf.png, id=239, 289.58188pt x 140.525pt>
 File: 2_unf.png Graphic file (type png)
 <use 2_unf.png>
 Package pdftex.def Info: 2_unf.png  used on input line 309.
@@ -687,7 +687,7 @@ Package pdftex.def Info: 2_unf.png  used on input line 309.
 [9
 
  <./2_unf.png>]
-<2_cpx.png, id=258, 203.76125pt x 126.4725pt>
+<2_cpx.png, id=252, 203.76125pt x 126.4725pt>
 File: 2_cpx.png Graphic file (type png)
 <use 2_cpx.png>
 Package pdftex.def Info: 2_cpx.png  used on input line 371.
@@ -701,7 +701,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [10]
-<5_env.png, id=269, 381.425pt x 224.84pt>
+<5_env.png, id=263, 381.425pt x 224.84pt>
 File: 5_env.png Graphic file (type png)
 <use 5_env.png>
 Package pdftex.def Info: 5_env.png  used on input line 417.
@@ -723,7 +723,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [12 <./5_env.png>]
-<7_fpe.png, id=290, 342.27875pt x 203.25937pt>
+<7_fpe.png, id=284, 342.27875pt x 203.25937pt>
 File: 7_fpe.png Graphic file (type png)
 <use 7_fpe.png>
 Package pdftex.def Info: 7_fpe.png  used on input line 471.
@@ -741,12 +741,12 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [13 <./7_fpe.png>]
-<6_inert.png, id=296, 277.53688pt x 155.58125pt>
+<6_inert.png, id=290, 277.53688pt x 155.58125pt>
 File: 6_inert.png Graphic file (type png)
 <use 6_inert.png>
 Package pdftex.def Info: 6_inert.png  used on input line 520.
 (pdftex.def)             Requested size: 203.02371pt x 113.81102pt.
-<6_pipe.png, id=297, 158.5925pt x 212.29312pt>
+<6_pipe.png, id=291, 158.5925pt x 212.29312pt>
 File: 6_pipe.png Graphic file (type png)
 <use 6_pipe.png>
 Package pdftex.def Info: 6_pipe.png  used on input line 534.
@@ -813,10 +813,10 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 
 [21]
 Chapter 5.
-<8_pend.png, id=347, 224.33812pt x 164.11313pt>
+<8_pend.png, id=341, 224.33812pt x 164.11313pt>
 File: 8_pend.png Graphic file (type png)
 <use 8_pend.png>
-Package pdftex.def Info: 8_pend.png  used on input line 870.
+Package pdftex.def Info: 8_pend.png  used on input line 867.
 (pdftex.def)             Requested size: 155.57736pt x 113.81102pt.
 [22
 
@@ -837,10 +837,10 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [24]
-<8_spr.png, id=366, 504.38437pt x 216.81pt>
+<8_spr.png, id=360, 504.38437pt x 216.81pt>
 File: 8_spr.png Graphic file (type png)
 <use 8_spr.png>
-Package pdftex.def Info: 8_spr.png  used on input line 1026.
+Package pdftex.def Info: 8_spr.png  used on input line 1023.
 (pdftex.def)             Requested size: 264.76727pt x 113.81102pt.
 
 
@@ -851,20 +851,16 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [25 <./8_spr.png>]
-LaTeX Font Info:    Trying to load font information for U+rsfso on input line 1118.
- (c:/texlive/2021/texmf-dist/tex/latex/rsfso/ursfso.fd
-File: ursfso.fd 2011/02/13 Fontinst v1.933 font definitions for U/rsfso.
-)
-LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1118.
-LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1118.
-LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1118.
-LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1136.
-LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1136.
+<8_impulse.png, id=368, 312.16624pt x 187.19937pt>
+File: 8_impulse.png Graphic file (type png)
+<use 8_impulse.png>
+Package pdftex.def Info: 8_impulse.png  used on input line 1098.
+(pdftex.def)             Requested size: 189.78761pt x 113.81102pt.
+<8_imp.png, id=370, 292.59312pt x 304.63812pt>
+File: 8_imp.png Graphic file (type png)
+<use 8_imp.png>
+Package pdftex.def Info: 8_imp.png  used on input line 1117.
+(pdftex.def)             Requested size: 218.62726pt x 227.62204pt.
 
 
 Package fancyhdr Warning: \headheight is too small (23.0pt): 
@@ -873,7 +869,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[26]
+[26 <./8_impulse.png> <./8_imp.png>]
 
 Package fancyhdr Warning: \headheight is too small (23.0pt): 
 (fancyhdr)                Make it at least 34.54448pt, for example:
@@ -882,11 +878,20 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
 [27]
-<6_bd.png, id=395, 324.21124pt x 106.89937pt>
-File: 6_bd.png Graphic file (type png)
-<use 6_bd.png>
-Package pdftex.def Info: 6_bd.png  used on input line 1249.
-(pdftex.def)             Requested size: 172.58308pt x 56.9055pt.
+LaTeX Font Info:    Trying to load font information for U+rsfso on input line 1174.
+ (c:/texlive/2021/texmf-dist/tex/latex/rsfso/ursfso.fd
+File: ursfso.fd 2011/02/13 Fontinst v1.933 font definitions for U/rsfso.
+)
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 10.0pt on input line 1174.
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1174.
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1174.
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1192.
+LaTeX Font Info:    Font shape `U/rsfso/m/n' will be
+(Font)              scaled to size 6.0pt on input line 1192.
 
 
 Package fancyhdr Warning: \headheight is too small (23.0pt): 
@@ -895,11 +900,24 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[28 <./6_bd.png>]
-<6_rlc.png, id=401, 476.27937pt x 150.5625pt>
+[28]
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[29]
+<6_bd.png, id=411, 324.21124pt x 106.89937pt>
+File: 6_bd.png Graphic file (type png)
+<use 6_bd.png>
+Package pdftex.def Info: 6_bd.png  used on input line 1311.
+(pdftex.def)             Requested size: 172.58308pt x 56.9055pt.
+<6_rlc.png, id=412, 476.27937pt x 150.5625pt>
 File: 6_rlc.png Graphic file (type png)
 <use 6_rlc.png>
-Package pdftex.def Info: 6_rlc.png  used on input line 1262.
+Package pdftex.def Info: 6_rlc.png  used on input line 1324.
 (pdftex.def)             Requested size: 360.03568pt x 113.81102pt.
 
 
@@ -909,7 +927,7 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[29 <./6_rlc.png>]
+[30 <./6_bd.png>]
 
 Package fancyhdr Warning: \headheight is too small (23.0pt): 
 (fancyhdr)                Make it at least 34.54448pt, for example:
@@ -917,9 +935,17 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[30]
+[31 <./6_rlc.png>]
+
+Package fancyhdr Warning: \headheight is too small (23.0pt): 
+(fancyhdr)                Make it at least 34.54448pt, for example:
+(fancyhdr)                \setlength{\headheight}{34.54448pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
+
+[32]
 Chapter 6.
-[31
+[33
 
 ]
 
@@ -929,23 +955,23 @@ Package fancyhdr Warning: \headheight is too small (23.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.54448pt}.
 
-[32] (./_systems.aux)
+[34] (./_systems.aux)
 Package rerunfilecheck Info: File `_systems.out' has not changed.
-(rerunfilecheck)             Checksum: 511CE1DBC54CC1CD235EF93768F0C436;4724.
+(rerunfilecheck)             Checksum: 2A837EE4ACD933E2E53F65B090C07D1E;4578.
  ) 
 Here is how much of TeX's memory you used:
- 22226 strings out of 478353
- 404958 string characters out of 5852094
- 698872 words of memory out of 5000000
- 39863 multiletter control sequences out of 15000+600000
+ 22252 strings out of 478353
+ 405342 string characters out of 5852094
+ 698873 words of memory out of 5000000
+ 39882 multiletter control sequences out of 15000+600000
  415066 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  88i,15n,91p,863b,598s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on _systems.pdf (33 pages, 767452 bytes).
+Output written on _systems.pdf (35 pages, 821763 bytes).
 PDF statistics:
- 547 PDF objects out of 1000 (max. 8388607)
- 429 compressed objects within 5 object streams
- 94 named destinations out of 1000 (max. 500000)
- 304 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 566 PDF objects out of 1000 (max. 8388607)
+ 442 compressed objects within 5 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

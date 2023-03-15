@@ -992,6 +992,14 @@ INPUT ./8_spr.png
 INPUT 8_spr.png
 INPUT ./8_spr.png
 INPUT ./8_spr.png
+INPUT ./8_impulse.png
+INPUT 8_impulse.png
+INPUT ./8_impulse.png
+INPUT ./8_impulse.png
+INPUT ./8_imp.png
+INPUT 8_imp.png
+INPUT ./8_imp.png
+INPUT ./8_imp.png
 INPUT c:/texlive/2021/texmf-dist/tex/latex/rsfso/ursfso.fd
 INPUT c:/texlive/2021/texmf-dist/tex/latex/rsfso/ursfso.fd
 INPUT c:/texlive/2021/texmf-dist/tex/latex/rsfso/ursfso.fd
